@@ -8,20 +8,20 @@
 import AVFoundation
 
 /// Node in an audio graph
-protocol JGSAudioNode: AnyObject {
+internal protocol JGSAudioNode: AnyObject {
     /// Nodes providing audio input to this node.
     var connections: [JGSAudioNode] { get }
     /// Internal AVAudioEngine node.
     var audioNode: AVAudioNode { get }
 }
 
-extension AVAudioFormat {
+internal extension AVAudioFormat {
     static var JGSTunerStereo: AVAudioFormat {
-        AVAudioFormat(standardFormatWithSampleRate: 44100 /* 44_100 */, channels: 2) ?? AVAudioFormat()
+        AVAudioFormat(standardFormatWithSampleRate: 44_100 /* 44100 */, channels: 2) ?? AVAudioFormat()
     }
 }
 
-extension AVAudioNode {
+internal extension AVAudioNode {
     
     /// Make a connection without breaking other connections.
     func jg_connect(input: AVAudioNode, bus: Int) {
@@ -37,7 +37,7 @@ extension AVAudioNode {
     }
 }
 
-extension AVAudioMixerNode {
+internal extension AVAudioMixerNode {
     
     /// Make a connection without breaking other connections.
     func jg_connectMixer(input: AVAudioNode) {

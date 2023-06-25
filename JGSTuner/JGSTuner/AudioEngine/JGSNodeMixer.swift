@@ -30,7 +30,7 @@ private extension JGSAudioNode {
     }
 }
 
-final class JGSNodeMixer: JGSAudioNode {
+internal final class JGSNodeMixer: JGSAudioNode {
     private var inputs: [JGSAudioNode] = []
     /// Connected nodes
     var connections: [JGSAudioNode] { inputs }

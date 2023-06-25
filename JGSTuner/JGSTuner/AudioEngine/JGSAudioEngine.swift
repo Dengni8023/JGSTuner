@@ -8,7 +8,7 @@
 import AVFoundation
 
 /// AudioKit's wrapper for AVAudioEngine
-final class JGSAudioEngine {
+internal final class JGSAudioEngine {
     
     /// Internal AVAudioEngine
     private let audioEngine = AVAudioEngine()
@@ -31,7 +31,7 @@ final class JGSAudioEngine {
     }()
 
     /// Empty initializer
-    internal required init(bufferSize size: UInt32, _ tapBlock: @escaping AVAudioNodeTapBlock) {
+    required init(bufferSize size: UInt32, _ tapBlock: @escaping AVAudioNodeTapBlock) {
         bufferSize = size
         audioNodeTapBlock = tapBlock
     }

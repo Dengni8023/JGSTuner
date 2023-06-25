@@ -1,5 +1,5 @@
 //
-//  JGSTunnerPicher.swift
+//  JGSTunerPicher.swift
 //  JGSTuner
 //
 //  Created by 梅继高 on 2023/6/25.
@@ -7,23 +7,32 @@
 
 import AVFoundation
 
-// 参考ZenTunner实现: https://github.com/jpsim/ZenTuner
+// 参考ZenTuner实现: https://github.com/jpsim/ZenTuner
 
-public final class JGSTunnerPicher {
+public final class JGSTunerPicher {
     
     private var hasMicrophoneAccess = false
     private var audioNodeTapBlock: AVAudioNodeTapBlock = { (buffer, time) in }
+    private var pitchDetector: JGSPitchDetector?
     private lazy var engine = JGSAudioEngine(bufferSize: bufferSize) { [weak self] buffer, time in
         self?.didReceiveAudio = true
         
         DispatchQueue.global().async { [weak self] in
             guard let `self` = self else { return }
             
+            if pitchDetector == nil {
+                pitchDetector = JGSPitchDetector(sampleRate: buffer.format.sampleRate, bufferSize: bufferSize)
+            }
+            
+            guard let tunnerData = pitchDetector?.analyzePitch(from: buffer) else {
+                return
+            }
+            
+            print("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.closestNote.note.frequency, "note:", tunnerData.closestNote.note.names.joined(separator: "/"), tunnerData.closestNote.octave)
         }
     }
     
     public var bufferSize: UInt32 = 4096
-    public var standardFrequency: Double = 440.0
     public var didReceiveAudio = false
     public var showMicrophoneAccessAlert: (() -> Void) = {}
     
