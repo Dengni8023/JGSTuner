@@ -31,11 +31,12 @@ final class JGSAudioEngine {
     }()
 
     /// Empty initializer
-    internal required init(_ tapBlock: @escaping AVAudioNodeTapBlock) {
+    internal required init(bufferSize size: UInt32, _ tapBlock: @escaping AVAudioNodeTapBlock) {
+        bufferSize = size
         audioNodeTapBlock = tapBlock
     }
     
-    private var bufferSize: UInt32 { 4096 }
+    private var bufferSize: UInt32 = 4096
     private var audioNodeTapBlock: AVAudioNodeTapBlock = { (buffer, time) in }
     
     /// Start the engine

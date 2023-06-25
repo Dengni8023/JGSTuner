@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D405D0322A4859470080769F /* JGSPitchDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D405D0312A4859470080769F /* JGSPitchDetector.swift */; };
 		D423116B2A3B3D5E0004EE8E /* JGSAudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423116A2A3B3D5E0004EE8E /* JGSAudioEngine.swift */; };
 		D423116D2A3B3DA00004EE8E /* JGSNodeMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D423116C2A3B3DA00004EE8E /* JGSNodeMixer.swift */; };
 		D42311712A3B42DF0004EE8E /* JGSAudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42311702A3B42DF0004EE8E /* JGSAudioNode.swift */; };
 		D42311732A3B538C0004EE8E /* JGSTuner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47E188D2A276CE90040B8BA /* JGSTuner.framework */; };
 		D42311742A3B538C0004EE8E /* JGSTuner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D47E188D2A276CE90040B8BA /* JGSTuner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D45BE26C2A30A432005B0714 /* JGSMicrophoneDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45BE26B2A30A432005B0714 /* JGSMicrophoneDetector.swift */; };
+		D46ED98E2A481D8400D7D586 /* JGSTunnerPicher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46ED98D2A481D8400D7D586 /* JGSTunnerPicher.swift */; };
 		D47E18922A276CE90040B8BA /* JGSTuner.docc in Sources */ = {isa = PBXBuildFile; fileRef = D47E18912A276CE90040B8BA /* JGSTuner.docc */; };
 		D47E18932A276CE90040B8BA /* JGSTuner.h in Headers */ = {isa = PBXBuildFile; fileRef = D47E18902A276CE90040B8BA /* JGSTuner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D47E18A02A276D220040B8BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47E189F2A276D220040B8BA /* AppDelegate.swift */; };
@@ -38,10 +39,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D405D0312A4859470080769F /* JGSPitchDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSPitchDetector.swift; sourceTree = "<group>"; };
 		D423116A2A3B3D5E0004EE8E /* JGSAudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioEngine.swift; sourceTree = "<group>"; };
 		D423116C2A3B3DA00004EE8E /* JGSNodeMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSNodeMixer.swift; sourceTree = "<group>"; };
 		D42311702A3B42DF0004EE8E /* JGSAudioNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioNode.swift; sourceTree = "<group>"; };
-		D45BE26B2A30A432005B0714 /* JGSMicrophoneDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSMicrophoneDetector.swift; sourceTree = "<group>"; };
+		D46ED98D2A481D8400D7D586 /* JGSTunnerPicher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunnerPicher.swift; sourceTree = "<group>"; };
 		D47E188D2A276CE90040B8BA /* JGSTuner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGSTuner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D47E18902A276CE90040B8BA /* JGSTuner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGSTuner.h; sourceTree = "<group>"; };
 		D47E18912A276CE90040B8BA /* JGSTuner.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = JGSTuner.docc; sourceTree = "<group>"; };
@@ -79,10 +81,17 @@
 			children = (
 				D423116A2A3B3D5E0004EE8E /* JGSAudioEngine.swift */,
 				D42311702A3B42DF0004EE8E /* JGSAudioNode.swift */,
-				D45BE26B2A30A432005B0714 /* JGSMicrophoneDetector.swift */,
 				D423116C2A3B3DA00004EE8E /* JGSNodeMixer.swift */,
 			);
 			path = AudioEngine;
+			sourceTree = "<group>";
+		};
+		D46ED93C2A4818A900D7D586 /* PitchDetector */ = {
+			isa = PBXGroup;
+			children = (
+				D405D0312A4859470080769F /* JGSPitchDetector.swift */,
+			);
+			path = PitchDetector;
 			sourceTree = "<group>";
 		};
 		D47E18832A276CE90040B8BA = {
@@ -107,9 +116,11 @@
 		D47E188F2A276CE90040B8BA /* JGSTuner */ = {
 			isa = PBXGroup;
 			children = (
+				D46ED93C2A4818A900D7D586 /* PitchDetector */,
 				D42311722A3B509E0004EE8E /* AudioEngine */,
 				D47E18912A276CE90040B8BA /* JGSTuner.docc */,
 				D47E18902A276CE90040B8BA /* JGSTuner.h */,
+				D46ED98D2A481D8400D7D586 /* JGSTunnerPicher.swift */,
 			);
 			path = JGSTuner;
 			sourceTree = "<group>";
@@ -197,6 +208,7 @@
 				TargetAttributes = {
 					D47E188C2A276CE90040B8BA = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 					D47E189C2A276D220040B8BA = {
 						CreatedOnToolsVersion = 14.3;
@@ -247,8 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D45BE26C2A30A432005B0714 /* JGSMicrophoneDetector.swift in Sources */,
 				D47E18922A276CE90040B8BA /* JGSTuner.docc in Sources */,
+				D405D0322A4859470080769F /* JGSPitchDetector.swift in Sources */,
+				D46ED98E2A481D8400D7D586 /* JGSTunnerPicher.swift in Sources */,
 				D423116D2A3B3DA00004EE8E /* JGSNodeMixer.swift in Sources */,
 				D42311712A3B42DF0004EE8E /* JGSAudioNode.swift in Sources */,
 				D423116B2A3B3D5E0004EE8E /* JGSAudioEngine.swift in Sources */,
@@ -410,6 +423,7 @@
 		D47E18972A276CE90040B8BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -433,6 +447,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -441,6 +456,7 @@
 		D47E18982A276CE90040B8BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

@@ -1,23 +1,29 @@
 //
-//  JGSMicrophoneDetector.swift
+//  JGSTunnerPicher.swift
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/7.
+//  Created by 梅继高 on 2023/6/25.
 //
 
 import AVFoundation
 
-@objcMembers
-open class JGSMicrophoneDetector {
+// 参考ZenTunner实现: https://github.com/jpsim/ZenTuner
+
+public final class JGSTunnerPicher {
     
     private var hasMicrophoneAccess = false
     private var audioNodeTapBlock: AVAudioNodeTapBlock = { (buffer, time) in }
-    private lazy var engine = JGSAudioEngine { [weak self] (buffer, time) in
+    private lazy var engine = JGSAudioEngine(bufferSize: bufferSize) { [weak self] buffer, time in
         self?.didReceiveAudio = true
-        self?.audioNodeTapBlock(buffer, time)
+        
+        DispatchQueue.global().async { [weak self] in
+            guard let `self` = self else { return }
+            
+        }
     }
     
-    public var pitch: Double = 440
+    public var bufferSize: UInt32 = 4096
+    public var standardFrequency: Double = 440.0
     public var didReceiveAudio = false
     public var showMicrophoneAccessAlert: (() -> Void) = {}
     
@@ -54,17 +60,6 @@ open class JGSMicrophoneDetector {
             let duration = String(format: "%.2fs", -startDate.timeIntervalSinceNow)
             print("Took \(duration) to start")
         }
-        
-//        checkMicrophoneAuthorizationStatus { [weak self] granted in
-//
-//            self?.hasMicrophoneAccess = granted
-//            guard granted else {
-//                self?.showMicrophoneAccessAlert()
-//                return
-//            }
-//
-//            self?.startEngine()
-//        }
     }
     
     @MainActor

@@ -11,7 +11,7 @@ import SwiftUI
 
 class ViewController: UIViewController {
     
-    private lazy var pitchDetector = JGSMicrophoneDetector { (buffer, time) in
+    private lazy var tunnerPitcher = JGSTunnerPicher { (buffer, time) in
         print("\(#function), Line: \(#line) buffer: \(buffer.frameLength), \(buffer.frameCapacity), time: \(time.sampleRate) \(time.sampleTime)")
     } microphoneAccessAlert: { [weak self] in
         
@@ -36,11 +36,11 @@ class ViewController: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if pitchDetector.didReceiveAudio {
-            pitchDetector.stop()
+        if tunnerPitcher.didReceiveAudio {
+            tunnerPitcher.stop()
         } else {
             Task { [weak self] in
-                await self?.pitchDetector.start(debug: true)
+                await self?.tunnerPitcher.start(debug: true)
             }
         }
     }
