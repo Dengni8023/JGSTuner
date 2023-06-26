@@ -1,14 +1,29 @@
 //
-//  JGSPitchDetector+FFT.m
+//  JGSPCMBufferUtils+FFT.m
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/25.
+//  Created by 梅继高 on 2023/6/26.
 //
 
-#import "JGSPitchDetector.h"
+#import "JGSPCMBufferUtils.h"
+
+// ZenTuner源码: https://github.com/jpsim/ZenTuner
+// 本文件复制：CMicrophonePitchDetector/fft.c
+// 后续修改待定
+
+/*
+    FFT library
+    based on public domain code by John Green <green_jt@vsdec.npt.nuwc.navy.mil>
+    original version is available at
+      http://hyperarchive.lcs.mit.edu/
+            /HyperArchive/Archive/dev/src/ffts-for-risc-2-c.hqx
+    ported to Csound by Istvan Varga, 2005
+*/
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <math.h>
+//#include "CMicrophonePitchDetector.h"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846

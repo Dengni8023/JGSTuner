@@ -1,5 +1,5 @@
 //
-//  JGSAudioEngine.swift
+//  JGSAudioDetector.swift
 //  JGSTuner
 //
 //  Created by 梅继高 on 2023/6/15.
@@ -8,7 +8,7 @@
 import AVFoundation
 
 /// AudioKit's wrapper for AVAudioEngine
-internal final class JGSAudioEngine {
+internal final class JGSAudioDetector {
     
     /// Internal AVAudioEngine
     private let audioEngine = AVAudioEngine()

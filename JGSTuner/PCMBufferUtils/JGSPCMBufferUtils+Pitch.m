@@ -1,13 +1,32 @@
 //
-//  JGSPitchDetector+PitchTracker.m
+//  JGSPCMBufferUtils+Pitch.m
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/25.
+//  Created by 梅继高 on 2023/6/26.
+//  Copyright © 2023 MeiJiGao. All rights reserved.
 //
 
-#import "JGSPitchDetector.h"
+#import "JGSPCMBufferUtils.h"
+
+// ZenTuner源码: https://github.com/jpsim/ZenTuner
+// 本文件复制：CMicrophonePitchDetector/ptrack.c
+// 后续修改待定
+
+/*
+ * PTrack
+ *
+ * This code has been extracted from the Csound opcode "ptrack".
+ * It has been modified to work as a Soundpipe module and modified again for use in ZenTuner.
+ *
+ * Original Author(s): Victor Lazzarini, Miller Puckette (Original Algorithm), Aurelius Prochazka
+ * Year: 2007
+ * Location: Opcodes/pitchtrack.c
+ *
+ */
+
 #include <stdlib.h>
 #include <math.h>
+//#include "CMicrophonePitchDetector.h"
 
 #define MINFREQINBINS 5
 #define MAXWINSIZ 8192

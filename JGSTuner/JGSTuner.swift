@@ -1,20 +1,19 @@
 //
-//  JGSTunerPicher.swift
+//  JGSTuner.swift
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/25.
+//  Created by 梅继高 on 2023/6/26.
+//  Copyright © 2023 MeiJiGao. All rights reserved.
 //
 
 import AVFoundation
 
-// 参考ZenTuner实现: https://github.com/jpsim/ZenTuner
-
-public final class JGSTunerPicher {
+@objcMembers
+public final class JGSTuner: NSObject {
     
     private var hasMicrophoneAccess = false
-    private var audioNodeTapBlock: AVAudioNodeTapBlock = { (buffer, time) in }
     private var pitchDetector: JGSPitchDetector?
-    private lazy var engine = JGSAudioEngine(bufferSize: bufferSize) { [weak self] buffer, time in
+    private lazy var engine = JGSAudioDetector(bufferSize: bufferSize) { [weak self] buffer, time in
         self?.didReceiveAudio = true
         
         DispatchQueue.global().async { [weak self] in
@@ -28,7 +27,7 @@ public final class JGSTunerPicher {
                 return
             }
             
-            print("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.closestNote.note.frequency, "note:", tunnerData.closestNote.note.names.joined(separator: "/"), tunnerData.closestNote.octave)
+            print("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.closestNote.note.frequency, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
         }
     }
     
@@ -36,8 +35,7 @@ public final class JGSTunerPicher {
     public var didReceiveAudio = false
     public var showMicrophoneAccessAlert: (() -> Void) = {}
     
-    public required init(_ tapBlock: @escaping AVAudioNodeTapBlock, microphoneAccessAlert: @escaping () -> Void) {
-        audioNodeTapBlock = tapBlock
+    public required init(microphoneAccessAlert: @escaping () -> Void) {
         showMicrophoneAccessAlert = microphoneAccessAlert
     }
     

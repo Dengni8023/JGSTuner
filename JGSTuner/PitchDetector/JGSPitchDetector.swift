@@ -24,7 +24,7 @@ internal final class JGSPitchDetector {
         withUnsafeMutablePointer(to: &data, zt_destroy)
     }
     
-    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.025) -> JGSTunerData? {
+    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.125) -> JGSTunerData? {
         
         guard let floatData = buffer.floatChannelData else { return nil }
 
