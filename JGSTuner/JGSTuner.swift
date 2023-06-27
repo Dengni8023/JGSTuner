@@ -24,12 +24,8 @@ public final class JGSTuner: NSObject {
                 pitchDetector = JGSPitchDetector(sampleRate: buffer.format.sampleRate, bufferSize: bufferSize)
             }
             
-            guard let tunnerData = pitchDetector?.analyzePitch(from: buffer) else {
-                return
-            }
-            
-            JGSLog("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.frequency.rawValue.value, "-->", tunnerData.closestNote.note.frequency.rawValue.value, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
-            //JGSLog("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.closestNote.note.frequency, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
+            guard let tunnerData = pitchDetector?.analyzePitch(from: buffer) else { return }
+            JGSLog("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.frequency.rawValue.value, "->", tunnerData.closestNote.note.frequency.rawValue.value, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
             
             if let callback = self.frequencyAmplitudeAnalyze {
                 callback(Float(tunnerData.frequency.rawValue.value), tunnerData.amplitude)
@@ -48,10 +44,10 @@ public final class JGSTuner: NSObject {
     }
     
     @MainActor
-    public func start() async {
+    public func start() async -> Bool {
         
         if didReceiveAudio {
-            return
+            return false
         }
         
         let startDate = Date()
@@ -65,11 +61,18 @@ public final class JGSTuner: NSObject {
             if hasMicrophoneAccess {
                 startEngine()
             } else {
-                break
+                return false
             }
             intervalMS = min(intervalMS * 2, 180)
+            
+            let seconds = -startDate.timeIntervalSinceNow
+            if seconds > 10 {
+                JGSLog("Start faild after \(String(format: "%.2fs", seconds))")
+                return false
+            }
         }
         JGSLog("Took \(String(format: "%.2fs", -startDate.timeIntervalSinceNow)) to start")
+        return true
     }
     
     @MainActor

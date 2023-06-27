@@ -80,7 +80,10 @@ class ViewController: UIViewController {
             tuner.stop()
         } else {
             Task { [weak self] in
-                await self?.tuner.start()
+                guard let `self` = self else { return }
+                
+                let success = await self.tuner.start()
+                JGSLog("Start", success ? "success" : "fail")
             }
         }
     }

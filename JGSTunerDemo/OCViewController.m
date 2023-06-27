@@ -49,13 +49,9 @@ UIColor * JGSColor(uint32_t hex) {
     if (_tuner.didReceiveAudio) {
         [_tuner stop];
     } else {
-        JGSWeakSelf
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            JGSStrongSelf
-            [self.tuner startWithCompletionHandler:^{
-                
-            }];
-        });
+        [_tuner startWithCompletionHandler:^(BOOL success) {
+            JGSLog(@"Start %@", success ? @"success" : @"fail");
+        }];
     }
 }
 /*

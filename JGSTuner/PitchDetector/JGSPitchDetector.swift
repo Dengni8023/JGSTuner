@@ -11,6 +11,7 @@ internal final class JGSPitchDetector {
     
     private var data: UnsafeMutablePointer<zt_data>?
     private var ptrack: UnsafeMutablePointer<zt_ptrack>?
+    private var ignoreCnt: Int = 0
     
     public init(sampleRate: Double, bufferSize: UInt32, peakCount: UInt32 = 20) {
         withUnsafeMutablePointer(to: &data, zt_create)
@@ -24,8 +25,15 @@ internal final class JGSPitchDetector {
         withUnsafeMutablePointer(to: &data, zt_destroy)
     }
     
-    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.125) -> JGSTunerData? {
-        
+    /// 频率分析
+    /// - Parameters:
+    ///   - buffer: 采样数据
+    ///   - amThreshold: 振幅阈值
+    ///   - ignore: 满足振幅阈值后，忽略几个点
+    /// - Returns: JGSTunerData?
+    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.025, ignore: Int = 3) -> JGSTunerData? {
+
+        // 数据异常
         guard let floatData = buffer.floatChannelData else { return nil }
 
         var frequency: Float = 0
@@ -36,10 +44,23 @@ internal final class JGSPitchDetector {
             zt_ptrack_compute(data, ptrack, frame, &frequency, &amplitude)
         }
         
-        if amplitude > amThreshold, frequency >= 70 {
-            return JGSTunerData(frequency: frequency, amplitude: amplitude)
-        } else {
+        // 振幅不满足
+        guard amplitude > amThreshold else {
+            ignoreCnt = 0
             return nil
         }
+        
+        // 忽略点
+        ignoreCnt += 1
+        guard ignoreCnt > ignore else {
+            return nil
+        }
+        
+        // 频率不满足
+        guard frequency >= 70 else {
+            return nil
+        }
+        
+        return  JGSTunerData(frequency: frequency, amplitude: amplitude)
     }
 }
