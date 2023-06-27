@@ -6,8 +6,9 @@
 //
 
 import UIKit
-import JGSTuner
 import SwiftUI
+import JGSTuner
+import JGSourceBase
 
 class ViewController: UIViewController {
 
@@ -69,6 +70,8 @@ class ViewController: UIViewController {
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         })
         self?.present(alert, animated: true)
+    } analyzeCallback: { [weak self] (frequency, amplitude) in
+        JGSLog(frequency, amplitude)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,7 +80,7 @@ class ViewController: UIViewController {
             tuner.stop()
         } else {
             Task { [weak self] in
-                await self?.tuner.start(debug: true)
+                await self?.tuner.start()
             }
         }
     }

@@ -31,6 +31,8 @@ UIColor * JGSColor(uint32_t hex) {
     
     _tuner = [[JGSTuner alloc] initWithMicrophoneAccessAlert:^{
         JGSLog();
+    } analyzeCallback:^(float frequency, float amplitude) {
+        JGSLog(@"%f, %f", frequency, amplitude);
     }];
 }
 
@@ -50,7 +52,7 @@ UIColor * JGSColor(uint32_t hex) {
         JGSWeakSelf
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             JGSStrongSelf
-            [self.tuner startWithDebug:YES completionHandler:^{
+            [self.tuner startWithCompletionHandler:^{
                 
             }];
         });

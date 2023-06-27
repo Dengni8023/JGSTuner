@@ -47,7 +47,7 @@ internal final class JGSAudioDetector {
             if let tapBlock = self?.audioNodeTapBlock {
                 tapBlock(buffer, time)
             } else {
-                print("\(#function), Line: \(#line) buffer: \(buffer.frameLength), \(buffer.frameCapacity), time: \(time)")
+                //print("\(#function), Line: \(#line) buffer: \(buffer.frameLength), \(buffer.frameCapacity), time: \(time)")
             }
         }
         

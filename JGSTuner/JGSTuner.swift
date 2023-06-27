@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import JGSourceBase
 
 @objcMembers
 public final class JGSTuner: NSObject {
@@ -27,20 +28,27 @@ public final class JGSTuner: NSObject {
                 return
             }
             
-            print("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.closestNote.note.frequency, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
+            JGSLog("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.frequency.rawValue.value, "-->", tunnerData.closestNote.note.frequency.rawValue.value, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
+            //JGSLog("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.closestNote.note.frequency, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
+            
+            if let callback = self.frequencyAmplitudeAnalyze {
+                callback(Float(tunnerData.frequency.rawValue.value), tunnerData.amplitude)
+            }
         }
     }
     
     public var bufferSize: UInt32 = 4096
     public var didReceiveAudio = false
-    public var showMicrophoneAccessAlert: (() -> Void) = {}
+    private var showMicrophoneAccessAlert: (() -> Void) = {}
+    private var frequencyAmplitudeAnalyze: ((_ frequency: Float, _ amplitude: Float) -> Void)?
     
-    public required init(microphoneAccessAlert: @escaping () -> Void) {
+    public required init(microphoneAccessAlert: @escaping () -> Void, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float) -> Void) {
         showMicrophoneAccessAlert = microphoneAccessAlert
+        frequencyAmplitudeAnalyze = callback
     }
     
     @MainActor
-    public func start(debug: Bool = false) async {
+    public func start() async {
         
         if didReceiveAudio {
             return
@@ -49,9 +57,8 @@ public final class JGSTuner: NSObject {
         let startDate = Date()
         var intervalMS: UInt64 = 30
         while !didReceiveAudio {
-            if debug {
-                print("Waiting \(intervalMS * 2)ms")
-            }
+            
+            JGSLog("Waiting \(intervalMS * 2)ms")
             try? await Task.sleep(nanoseconds: intervalMS * NSEC_PER_MSEC)
             hasMicrophoneAccess = await checkMicrophoneAuthorizationStatus()
             try? await Task.sleep(nanoseconds: intervalMS * NSEC_PER_MSEC)
@@ -62,11 +69,7 @@ public final class JGSTuner: NSObject {
             }
             intervalMS = min(intervalMS * 2, 180)
         }
-
-        if debug {
-            let duration = String(format: "%.2fs", -startDate.timeIntervalSinceNow)
-            print("Took \(duration) to start")
-        }
+        JGSLog("Took \(String(format: "%.2fs", -startDate.timeIntervalSinceNow)) to start")
     }
     
     @MainActor
@@ -86,7 +89,7 @@ public final class JGSTuner: NSObject {
             try engine.start()
         } catch {
             // TODO: Handle error
-            print("Error")
+            JGSLog("Error")
         }
     }
     
