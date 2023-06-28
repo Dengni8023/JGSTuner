@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D405D0CD2A496A560080769F"
+               BlueprintIdentifier = "D4C42FB52A4BC01600B0812E"
                BuildableName = "JGSTuner.framework"
                BlueprintName = "JGSTuner"
-               ReferencedContainer = "container:JGSTunerDemo.xcodeproj">
+               ReferencedContainer = "container:JGSTuner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,10 +49,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D405D0CD2A496A560080769F"
+            BlueprintIdentifier = "D4C42FB52A4BC01600B0812E"
             BuildableName = "JGSTuner.framework"
             BlueprintName = "JGSTuner"
-            ReferencedContainer = "container:JGSTunerDemo.xcodeproj">
+            ReferencedContainer = "container:JGSTuner.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

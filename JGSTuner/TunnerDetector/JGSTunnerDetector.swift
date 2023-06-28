@@ -1,13 +1,14 @@
 //
-//  JGSPitchDetector.swift
+//  JGSTunnerDetector.swift
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/25.
+//  Created by 梅继高 on 2023/6/28.
+//  Copyright © 2023 MeiJigao. All rights reserved.
 //
 
-import AVFoundation
+import Foundation
 
-internal final class JGSPitchDetector {
+internal final class JGSTunnerDetector {
     
     private var data: UnsafeMutablePointer<zt_data>?
     private var ptrack: UnsafeMutablePointer<zt_ptrack>?

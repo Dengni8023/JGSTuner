@@ -2,8 +2,8 @@
 //  JGSTuner.swift
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/26.
-//  Copyright © 2023 MeiJiGao. All rights reserved.
+//  Created by 梅继高 on 2023/6/28.
+//  Copyright © 2023 MeiJigao. All rights reserved.
 //
 
 import AVFoundation
@@ -13,7 +13,7 @@ import JGSourceBase
 public final class JGSTuner: NSObject {
     
     private var hasMicrophoneAccess = false
-    private var pitchDetector: JGSPitchDetector?
+    private var pitchDetector: JGSTunnerDetector?
     private lazy var engine = JGSAudioDetector(bufferSize: bufferSize) { [weak self] buffer, time in
         self?.didReceiveAudio = true
         
@@ -21,7 +21,7 @@ public final class JGSTuner: NSObject {
             guard let `self` = self else { return }
             
             if pitchDetector == nil {
-                pitchDetector = JGSPitchDetector(sampleRate: buffer.format.sampleRate, bufferSize: bufferSize)
+                pitchDetector = JGSTunnerDetector(sampleRate: buffer.format.sampleRate, bufferSize: bufferSize)
             }
             
             guard let tunnerData = pitchDetector?.analyzePitch(from: buffer) else { return }
@@ -35,11 +35,35 @@ public final class JGSTuner: NSObject {
     
     public var bufferSize: UInt32 = 4096
     public var didReceiveAudio = false
-    private var showMicrophoneAccessAlert: (() -> Void) = {}
+    private var showMicrophoneAccessAlert: (() -> Void) = {
+        
+        let alert = UIAlertController(title: "提示", message: """
+        请在设置-隐私与安全设置中允许本应用使用麦克风，已采集音频输入信号。
+        """, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .cancel))
+        alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        })
+        if #available(iOS 13.0, *) {
+            
+            for scene in UIApplication.shared.connectedScenes {
+                if let winScene = scene as? UIWindowScene, scene.activationState == .foregroundActive {
+                    var keyWindow = winScene.windows.first
+                    if #available(iOS 15.0, *) {
+                        keyWindow = winScene.keyWindow ?? keyWindow
+                    }
+                    keyWindow?.rootViewController?.present(alert, animated: true)
+                    break
+                }
+            }
+        } else {
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
+        }
+    }
     private var frequencyAmplitudeAnalyze: ((_ frequency: Float, _ amplitude: Float) -> Void)?
     
-    public required init(microphoneAccessAlert: @escaping () -> Void, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float) -> Void) {
-        showMicrophoneAccessAlert = microphoneAccessAlert
+    public required init(microphoneAccessAlert: (() -> Void)?, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float) -> Void) {
+        showMicrophoneAccessAlert = microphoneAccessAlert ?? showMicrophoneAccessAlert
         frequencyAmplitudeAnalyze = callback
     }
     
@@ -61,6 +85,7 @@ public final class JGSTuner: NSObject {
             if hasMicrophoneAccess {
                 startEngine()
             } else {
+                showMicrophoneAccessAlert()
                 return false
             }
             intervalMS = min(intervalMS * 2, 180)

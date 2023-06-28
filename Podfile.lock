@@ -1,10 +1,15 @@
 PODS:
   - JGSourceBase/Base (1.4.1)
+  - JGSourceBase/Category (1.4.1):
+    - JGSourceBase/Base
+    - JGSourceBase/JSON
+  - JGSourceBase/JSON (1.4.1):
+    - JGSourceBase/Base
   - JGSTuner (0.0.1):
     - JGSourceBase/Base (>= 1.4.0)
 
 DEPENDENCIES:
-  - JGSourceBase/Base (from `https://gitee.com/dengni8023/JGSourceBase`, commit `2651b42dd7c4656a7dfbedd0b5df8c7fc8d40a8f`)
+  - JGSourceBase/Category (from `https://gitee.com/dengni8023/JGSourceBase`, commit `2651b42dd7c4656a7dfbedd0b5df8c7fc8d40a8f`)
   - JGSTuner (from `./`)
 
 EXTERNAL SOURCES:
@@ -21,8 +26,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   JGSourceBase: 869867392916dad7d9fc3fb264ae23e0495f6e59
-  JGSTuner: 9c67b9ad2c78848bc3370a5c7c0d2c179cf4a998
+  JGSTuner: 6294dc1a07398ec81ec3297b293fdf47bdfdf679
 
-PODFILE CHECKSUM: 1865f2000ee8e6351554f9347862be848e69c9e7
+PODFILE CHECKSUM: 62a04de7c4192331ef25931c86671eec6baadd97
 
 COCOAPODS: 1.11.1

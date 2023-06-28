@@ -123,15 +123,13 @@ Pod::Spec.new do |spec|
     "JGSTuner/*.{h,m,swift}",
     "JGSTuner/MicrophoneDetector/*.{h,m,swift}",
     "JGSTuner/PCMBufferUtils/*.{h,m,swift}",
-    "JGSTuner/PitchDetector/*.{h,m,swift}",
+    "JGSTuner/TunnerDetector/*.{h,m,swift}",
   ]
   spec.project_header_files = [
   ]
   spec.public_header_files = [
     "JGSTuner/*.h",
-    "JGSTuner/MicrophoneDetector/*.h",
     "JGSTuner/PCMBufferUtils/*.h",
-    "JGSTuner/PitchDetector/*.h",
   ]
   
   # spec.public_header_files = "Classes/**/*.h"

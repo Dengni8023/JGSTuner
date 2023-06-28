@@ -2,7 +2,8 @@
 //  JGSAudioDetector.swift
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/15.
+//  Created by 梅继高 on 2023/6/28.
+//  Copyright © 2023 MeiJigao. All rights reserved.
 //
 
 import AVFoundation

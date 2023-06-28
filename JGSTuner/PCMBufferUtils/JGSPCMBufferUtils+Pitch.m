@@ -2,8 +2,8 @@
 //  JGSPCMBufferUtils+Pitch.m
 //  JGSTuner
 //
-//  Created by 梅继高 on 2023/6/26.
-//  Copyright © 2023 MeiJiGao. All rights reserved.
+//  Created by 梅继高 on 2023/6/28.
+//  Copyright © 2023 MeiJigao. All rights reserved.
 //
 
 #import "JGSPCMBufferUtils.h"

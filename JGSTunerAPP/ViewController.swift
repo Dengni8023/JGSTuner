@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import SwiftUI
 import JGSTuner
 import JGSourceBase
 
@@ -19,8 +18,6 @@ class ViewController: UIViewController {
         
         title = "Demo-Swift"
         view.backgroundColor = UIColor(white: 0.99, alpha: 1.0)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "OCEntry", style: .plain, target: self, action: #selector(toOCEntry(sender:)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,11 +50,6 @@ class ViewController: UIViewController {
         if tuner.didReceiveAudio {
             tuner.stop()
         }
-    }
-    
-    @objc private func toOCEntry(sender: UIBarButtonItem) {
-        
-        navigationController?.pushViewController(OCDemoViewController(), animated: true)
     }
     
     // MARK: - Tuner

@@ -1,26 +1,22 @@
 //
-//  OCViewController.m
+//  OCDemoViewController.m
 //  JGSTunerDemo
 //
-//  Created by 梅继高 on 2023/6/26.
-//  Copyright © 2023 MeiJiGao. All rights reserved.
+//  Created by 梅继高 on 2023/6/28.
+//  Copyright © 2023 MeiJigao. All rights reserved.
 //
 
-#import "OCViewController.h"
+#import "OCDemoViewController.h"
 #import <JGSourceBase/JGSourceBase.h>
 @import JGSTuner;
 
-UIColor * JGSColor(uint32_t hex) {
-    return [UIColor colorWithRed:(((hex & 0xFF0000) >> 16) / 255.f) green:(((hex & 0xFF00) >> 8) / 255.f) blue:(((hex & 0xFF) >> 0) / 255.f) alpha:1.f];
-}
-
-@interface OCViewController ()
+@interface OCDemoViewController ()
 
 @property (nonatomic, strong) JGSTuner *tuner;
 
 @end
 
-@implementation OCViewController
+@implementation OCDemoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,9 +25,7 @@ UIColor * JGSColor(uint32_t hex) {
     self.title = @"Demo-OC";
     self.view.backgroundColor = [UIColor colorWithWhite:0.99 alpha:1.0];
     
-    _tuner = [[JGSTuner alloc] initWithMicrophoneAccessAlert:^{
-        JGSLog();
-    } analyzeCallback:^(float frequency, float amplitude) {
+    _tuner = [[JGSTuner alloc] initWithMicrophoneAccessAlert:nil analyzeCallback:^(float frequency, float amplitude) {
         JGSLog(@"%f, %f", frequency, amplitude);
     }];
 }

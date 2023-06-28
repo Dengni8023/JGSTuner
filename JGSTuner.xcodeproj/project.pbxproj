@@ -1,0 +1,936 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C818786A3187117488F3683 /* Pods_JGSTuner_JGSTunerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83743FBB171CCAFD6DC0DB14 /* Pods_JGSTuner_JGSTunerDemo.framework */; };
+		35F4DFA5AF212AE3C12765D5 /* Pods_JGSTuner_JGSTuner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A7AE7A556B9327FE348470 /* Pods_JGSTuner_JGSTuner.framework */; };
+		D4C42FBA2A4BC01600B0812E /* JGSTuner.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C42FB92A4BC01600B0812E /* JGSTuner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4C430002A4BC4CC00B0812E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C42FFF2A4BC4CC00B0812E /* Assets.xcassets */; };
+		D4C4300F2A4BC4EE00B0812E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4300E2A4BC4EE00B0812E /* AppDelegate.swift */; };
+		D4C430112A4BC4EE00B0812E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430102A4BC4EE00B0812E /* SceneDelegate.swift */; };
+		D4C430132A4BC4EE00B0812E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430122A4BC4EE00B0812E /* ViewController.swift */; };
+		D4C430182A4BC4EF00B0812E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C430172A4BC4EF00B0812E /* Assets.xcassets */; };
+		D4C430212A4BC5C000B0812E /* JGSTuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430202A4BC5C000B0812E /* JGSTuner.swift */; };
+		D4C4302E2A4BC6FE00B0812E /* JGSPCMBufferUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C4302C2A4BC6FE00B0812E /* JGSPCMBufferUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4C4302F2A4BC6FE00B0812E /* JGSPCMBufferUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C4302D2A4BC6FE00B0812E /* JGSPCMBufferUtils.m */; };
+		D4C430352A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C430332A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m */; };
+		D4C430392A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C430372A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m */; };
+		D4C4303C2A4BC8A100B0812E /* JGSAudioDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303B2A4BC8A100B0812E /* JGSAudioDetector.swift */; };
+		D4C4303E2A4BCDDC00B0812E /* JGSAudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303D2A4BCDDC00B0812E /* JGSAudioNode.swift */; };
+		D4C430402A4BCDF000B0812E /* JGSNodeMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303F2A4BCDF000B0812E /* JGSNodeMixer.swift */; };
+		D4C430422A4BCE1100B0812E /* JGSTunerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430412A4BCE1100B0812E /* JGSTunerData.swift */; };
+		D4C430442A4BCE2400B0812E /* JGSTunerFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430432A4BCE2400B0812E /* JGSTunerFrequency.swift */; };
+		D4C430462A4BCE3900B0812E /* JGSTunerNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430452A4BCE3900B0812E /* JGSTunerNote.swift */; };
+		D4C430482A4BCE5A00B0812E /* JGSTunnerDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430472A4BCE5A00B0812E /* JGSTunnerDetector.swift */; };
+		D4C430492A4BD1B500B0812E /* JGSTuner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C42FB62A4BC01600B0812E /* JGSTuner.framework */; };
+		D4C4304A2A4BD1B500B0812E /* JGSTuner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4C42FB62A4BC01600B0812E /* JGSTuner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D4C430522A4BD2B700B0812E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C430512A4BD2B700B0812E /* LaunchScreen.storyboard */; };
+		D4C430542A4BD2C700B0812E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C430532A4BD2C700B0812E /* Launch Screen.storyboard */; };
+		D4C430592A4BD32600B0812E /* OCDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C430582A4BD32600B0812E /* OCDemoViewController.m */; };
+		D4C4305D2A4BD3B300B0812E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4305A2A4BD3B300B0812E /* SceneDelegate.swift */; };
+		D4C4305E2A4BD3B300B0812E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4305B2A4BD3B300B0812E /* ViewController.swift */; };
+		D4C4305F2A4BD3B300B0812E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4305C2A4BD3B300B0812E /* AppDelegate.swift */; };
+		E80C18F4B6023C43F044DFF7 /* Pods_JGSTuner_JGSTunerAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F55612F5BA7B56DF9B9056 /* Pods_JGSTuner_JGSTunerAPP.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4C4304B2A4BD1B500B0812E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4C42FAD2A4BC01600B0812E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4C42FB52A4BC01600B0812E;
+			remoteInfo = JGSTuner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4C4304D2A4BD1B500B0812E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D4C4304A2A4BD1B500B0812E /* JGSTuner.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		18CE3070F79A9D1390B75775 /* Pods-JGSTuner-JGSTuner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGSTuner-JGSTuner.debug.xcconfig"; path = "Target Support Files/Pods-JGSTuner-JGSTuner/Pods-JGSTuner-JGSTuner.debug.xcconfig"; sourceTree = "<group>"; };
+		29A7AE7A556B9327FE348470 /* Pods_JGSTuner_JGSTuner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JGSTuner_JGSTuner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		342C28D1E894579B32025366 /* Pods-JGSTuner-JGSTuner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGSTuner-JGSTuner.release.xcconfig"; path = "Target Support Files/Pods-JGSTuner-JGSTuner/Pods-JGSTuner-JGSTuner.release.xcconfig"; sourceTree = "<group>"; };
+		58D9BEB514D353D05D3BD0B9 /* Pods-JGSTuner-JGSTunerAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGSTuner-JGSTunerAPP.debug.xcconfig"; path = "Target Support Files/Pods-JGSTuner-JGSTunerAPP/Pods-JGSTuner-JGSTunerAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		5A6D767403DFE19699ADB17D /* Pods-JGSTuner-JGSTunerAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGSTuner-JGSTunerAPP.release.xcconfig"; path = "Target Support Files/Pods-JGSTuner-JGSTunerAPP/Pods-JGSTuner-JGSTunerAPP.release.xcconfig"; sourceTree = "<group>"; };
+		83743FBB171CCAFD6DC0DB14 /* Pods_JGSTuner_JGSTunerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JGSTuner_JGSTunerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F55612F5BA7B56DF9B9056 /* Pods_JGSTuner_JGSTunerAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JGSTuner_JGSTunerAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F0584F7788BE92CBD7FB738 /* Pods-JGSTuner-JGSTunerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGSTuner-JGSTunerDemo.debug.xcconfig"; path = "Target Support Files/Pods-JGSTuner-JGSTunerDemo/Pods-JGSTuner-JGSTunerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D4C42FB62A4BC01600B0812E /* JGSTuner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGSTuner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C42FB92A4BC01600B0812E /* JGSTuner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGSTuner.h; sourceTree = "<group>"; };
+		D4C42FF42A4BC4CB00B0812E /* JGSTunerAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGSTunerAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C42FFF2A4BC4CC00B0812E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4C430042A4BC4CC00B0812E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C4300C2A4BC4EE00B0812E /* JGSTunerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGSTunerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C4300E2A4BC4EE00B0812E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4C430102A4BC4EE00B0812E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D4C430122A4BC4EE00B0812E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4C430172A4BC4EF00B0812E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4C4301C2A4BC4EF00B0812E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4C430202A4BC5C000B0812E /* JGSTuner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTuner.swift; sourceTree = "<group>"; };
+		D4C4302C2A4BC6FE00B0812E /* JGSPCMBufferUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGSPCMBufferUtils.h; sourceTree = "<group>"; };
+		D4C4302D2A4BC6FE00B0812E /* JGSPCMBufferUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGSPCMBufferUtils.m; sourceTree = "<group>"; };
+		D4C430332A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JGSPCMBufferUtils+FFT.m"; sourceTree = "<group>"; };
+		D4C430372A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JGSPCMBufferUtils+Pitch.m"; sourceTree = "<group>"; };
+		D4C4303B2A4BC8A100B0812E /* JGSAudioDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioDetector.swift; sourceTree = "<group>"; };
+		D4C4303D2A4BCDDC00B0812E /* JGSAudioNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioNode.swift; sourceTree = "<group>"; };
+		D4C4303F2A4BCDF000B0812E /* JGSNodeMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSNodeMixer.swift; sourceTree = "<group>"; };
+		D4C430412A4BCE1100B0812E /* JGSTunerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunerData.swift; sourceTree = "<group>"; };
+		D4C430432A4BCE2400B0812E /* JGSTunerFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunerFrequency.swift; sourceTree = "<group>"; };
+		D4C430452A4BCE3900B0812E /* JGSTunerNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunerNote.swift; sourceTree = "<group>"; };
+		D4C430472A4BCE5A00B0812E /* JGSTunnerDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunnerDetector.swift; sourceTree = "<group>"; };
+		D4C430512A4BD2B700B0812E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4C430532A4BD2C700B0812E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D4C430562A4BD32500B0812E /* JGSTunerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JGSTunerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		D4C430572A4BD32600B0812E /* OCDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCDemoViewController.h; sourceTree = "<group>"; };
+		D4C430582A4BD32600B0812E /* OCDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCDemoViewController.m; sourceTree = "<group>"; };
+		D4C4305A2A4BD3B300B0812E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D4C4305B2A4BD3B300B0812E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4C4305C2A4BD3B300B0812E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D6D914768CFB024358D8C9A9 /* Pods-JGSTuner-JGSTunerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGSTuner-JGSTunerDemo.release.xcconfig"; path = "Target Support Files/Pods-JGSTuner-JGSTunerDemo/Pods-JGSTuner-JGSTunerDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4C42FB32A4BC01600B0812E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F4DFA5AF212AE3C12765D5 /* Pods_JGSTuner_JGSTuner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C42FF12A4BC4CB00B0812E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E80C18F4B6023C43F044DFF7 /* Pods_JGSTuner_JGSTunerAPP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C430092A4BC4EE00B0812E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C430492A4BD1B500B0812E /* JGSTuner.framework in Frameworks */,
+				0C818786A3187117488F3683 /* Pods_JGSTuner_JGSTunerDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9ACC3D9C13A6E8DAD86ED923 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29A7AE7A556B9327FE348470 /* Pods_JGSTuner_JGSTuner.framework */,
+				90F55612F5BA7B56DF9B9056 /* Pods_JGSTuner_JGSTunerAPP.framework */,
+				83743FBB171CCAFD6DC0DB14 /* Pods_JGSTuner_JGSTunerDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACDF9AFC630EF141E1317A2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18CE3070F79A9D1390B75775 /* Pods-JGSTuner-JGSTuner.debug.xcconfig */,
+				342C28D1E894579B32025366 /* Pods-JGSTuner-JGSTuner.release.xcconfig */,
+				58D9BEB514D353D05D3BD0B9 /* Pods-JGSTuner-JGSTunerAPP.debug.xcconfig */,
+				5A6D767403DFE19699ADB17D /* Pods-JGSTuner-JGSTunerAPP.release.xcconfig */,
+				9F0584F7788BE92CBD7FB738 /* Pods-JGSTuner-JGSTunerDemo.debug.xcconfig */,
+				D6D914768CFB024358D8C9A9 /* Pods-JGSTuner-JGSTunerDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D4C42FAC2A4BC01600B0812E = {
+			isa = PBXGroup;
+			children = (
+				D4C42FB82A4BC01600B0812E /* JGSTuner */,
+				D4C42FF52A4BC4CB00B0812E /* JGSTunerAPP */,
+				D4C4300D2A4BC4EE00B0812E /* JGSTunerDemo */,
+				D4C42FB72A4BC01600B0812E /* Products */,
+				ACDF9AFC630EF141E1317A2D /* Pods */,
+				9ACC3D9C13A6E8DAD86ED923 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D4C42FB72A4BC01600B0812E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4C42FB62A4BC01600B0812E /* JGSTuner.framework */,
+				D4C42FF42A4BC4CB00B0812E /* JGSTunerAPP.app */,
+				D4C4300C2A4BC4EE00B0812E /* JGSTunerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4C42FB82A4BC01600B0812E /* JGSTuner */ = {
+			isa = PBXGroup;
+			children = (
+				D4C42FB92A4BC01600B0812E /* JGSTuner.h */,
+				D4C430202A4BC5C000B0812E /* JGSTuner.swift */,
+				D4C430242A4BC62E00B0812E /* MicrophoneDetector */,
+				D4C430252A4BC63F00B0812E /* PCMBufferUtils */,
+				D4C430222A4BC60100B0812E /* TunnerDetector */,
+			);
+			path = JGSTuner;
+			sourceTree = "<group>";
+		};
+		D4C42FF52A4BC4CB00B0812E /* JGSTunerAPP */ = {
+			isa = PBXGroup;
+			children = (
+				D4C4305C2A4BD3B300B0812E /* AppDelegate.swift */,
+				D4C4305A2A4BD3B300B0812E /* SceneDelegate.swift */,
+				D4C4305B2A4BD3B300B0812E /* ViewController.swift */,
+				D4C42FFF2A4BC4CC00B0812E /* Assets.xcassets */,
+				D4C430512A4BD2B700B0812E /* LaunchScreen.storyboard */,
+				D4C430042A4BC4CC00B0812E /* Info.plist */,
+			);
+			path = JGSTunerAPP;
+			sourceTree = "<group>";
+		};
+		D4C4300D2A4BC4EE00B0812E /* JGSTunerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				D4C430552A4BD2D900B0812E /* Classes */,
+				D4C4300E2A4BC4EE00B0812E /* AppDelegate.swift */,
+				D4C430102A4BC4EE00B0812E /* SceneDelegate.swift */,
+				D4C430122A4BC4EE00B0812E /* ViewController.swift */,
+				D4C430172A4BC4EF00B0812E /* Assets.xcassets */,
+				D4C430532A4BD2C700B0812E /* Launch Screen.storyboard */,
+				D4C4301C2A4BC4EF00B0812E /* Info.plist */,
+			);
+			path = JGSTunerDemo;
+			sourceTree = "<group>";
+		};
+		D4C430222A4BC60100B0812E /* TunnerDetector */ = {
+			isa = PBXGroup;
+			children = (
+				D4C430412A4BCE1100B0812E /* JGSTunerData.swift */,
+				D4C430432A4BCE2400B0812E /* JGSTunerFrequency.swift */,
+				D4C430452A4BCE3900B0812E /* JGSTunerNote.swift */,
+				D4C430472A4BCE5A00B0812E /* JGSTunnerDetector.swift */,
+			);
+			path = TunnerDetector;
+			sourceTree = "<group>";
+		};
+		D4C430242A4BC62E00B0812E /* MicrophoneDetector */ = {
+			isa = PBXGroup;
+			children = (
+				D4C4303B2A4BC8A100B0812E /* JGSAudioDetector.swift */,
+				D4C4303D2A4BCDDC00B0812E /* JGSAudioNode.swift */,
+				D4C4303F2A4BCDF000B0812E /* JGSNodeMixer.swift */,
+			);
+			path = MicrophoneDetector;
+			sourceTree = "<group>";
+		};
+		D4C430252A4BC63F00B0812E /* PCMBufferUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D4C4302C2A4BC6FE00B0812E /* JGSPCMBufferUtils.h */,
+				D4C4302D2A4BC6FE00B0812E /* JGSPCMBufferUtils.m */,
+				D4C430332A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m */,
+				D4C430372A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m */,
+			);
+			path = PCMBufferUtils;
+			sourceTree = "<group>";
+		};
+		D4C430552A4BD2D900B0812E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D4C430572A4BD32600B0812E /* OCDemoViewController.h */,
+				D4C430582A4BD32600B0812E /* OCDemoViewController.m */,
+				D4C430562A4BD32500B0812E /* JGSTunerDemo-Bridging-Header.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D4C42FB12A4BC01600B0812E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C4302E2A4BC6FE00B0812E /* JGSPCMBufferUtils.h in Headers */,
+				D4C42FBA2A4BC01600B0812E /* JGSTuner.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D4C42FB52A4BC01600B0812E /* JGSTuner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4C42FBD2A4BC01600B0812E /* Build configuration list for PBXNativeTarget "JGSTuner" */;
+			buildPhases = (
+				4127E8035408F18A9541FFBA /* [CP] Check Pods Manifest.lock */,
+				D4C42FB12A4BC01600B0812E /* Headers */,
+				D4C42FB22A4BC01600B0812E /* Sources */,
+				D4C42FB32A4BC01600B0812E /* Frameworks */,
+				D4C42FB42A4BC01600B0812E /* Resources */,
+				BB760977242BDAA5C91E25CE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JGSTuner;
+			productName = JGSTuner;
+			productReference = D4C42FB62A4BC01600B0812E /* JGSTuner.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4C42FF32A4BC4CB00B0812E /* JGSTunerAPP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4C430052A4BC4CC00B0812E /* Build configuration list for PBXNativeTarget "JGSTunerAPP" */;
+			buildPhases = (
+				11C17FAC439E624E89595BDD /* [CP] Check Pods Manifest.lock */,
+				D4C42FF02A4BC4CB00B0812E /* Sources */,
+				D4C42FF12A4BC4CB00B0812E /* Frameworks */,
+				D4C42FF22A4BC4CB00B0812E /* Resources */,
+				8BDFD5611CFE3BADC9B886E8 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JGSTunerAPP;
+			productName = JGSTunerAPP;
+			productReference = D4C42FF42A4BC4CB00B0812E /* JGSTunerAPP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4C4300B2A4BC4EE00B0812E /* JGSTunerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4C4301D2A4BC4EF00B0812E /* Build configuration list for PBXNativeTarget "JGSTunerDemo" */;
+			buildPhases = (
+				3F5BE66829A9392A7699BE2D /* [CP] Check Pods Manifest.lock */,
+				D4C430082A4BC4EE00B0812E /* Sources */,
+				D4C430092A4BC4EE00B0812E /* Frameworks */,
+				D4C4300A2A4BC4EE00B0812E /* Resources */,
+				7B5D142703DB669E02B69D95 /* [CP] Copy Pods Resources */,
+				D4C4304D2A4BD1B500B0812E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4C4304C2A4BD1B500B0812E /* PBXTargetDependency */,
+			);
+			name = JGSTunerDemo;
+			productName = JGSTunerDemo;
+			productReference = D4C4300C2A4BC4EE00B0812E /* JGSTunerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4C42FAD2A4BC01600B0812E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				CLASSPREFIX = JGS;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				ORGANIZATIONNAME = MeiJigao;
+				TargetAttributes = {
+					D4C42FB52A4BC01600B0812E = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
+					};
+					D4C42FF32A4BC4CB00B0812E = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					D4C4300B2A4BC4EE00B0812E = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
+					};
+				};
+			};
+			buildConfigurationList = D4C42FB02A4BC01600B0812E /* Build configuration list for PBXProject "JGSTuner" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4C42FAC2A4BC01600B0812E;
+			productRefGroup = D4C42FB72A4BC01600B0812E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4C42FB52A4BC01600B0812E /* JGSTuner */,
+				D4C42FF32A4BC4CB00B0812E /* JGSTunerAPP */,
+				D4C4300B2A4BC4EE00B0812E /* JGSTunerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4C42FB42A4BC01600B0812E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C42FF22A4BC4CB00B0812E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C430002A4BC4CC00B0812E /* Assets.xcassets in Resources */,
+				D4C430522A4BD2B700B0812E /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C4300A2A4BC4EE00B0812E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C430542A4BD2C700B0812E /* Launch Screen.storyboard in Resources */,
+				D4C430182A4BC4EF00B0812E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11C17FAC439E624E89595BDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JGSTuner-JGSTunerAPP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F5BE66829A9392A7699BE2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JGSTuner-JGSTunerDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4127E8035408F18A9541FFBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JGSTuner-JGSTuner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B5D142703DB669E02B69D95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTunerDemo/Pods-JGSTuner-JGSTunerDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTunerDemo/Pods-JGSTuner-JGSTunerDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTunerDemo/Pods-JGSTuner-JGSTunerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BDFD5611CFE3BADC9B886E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTunerAPP/Pods-JGSTuner-JGSTunerAPP-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTunerAPP/Pods-JGSTuner-JGSTunerAPP-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTunerAPP/Pods-JGSTuner-JGSTunerAPP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB760977242BDAA5C91E25CE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTuner/Pods-JGSTuner-JGSTuner-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTuner/Pods-JGSTuner-JGSTuner-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JGSTuner-JGSTuner/Pods-JGSTuner-JGSTuner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4C42FB22A4BC01600B0812E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C430442A4BCE2400B0812E /* JGSTunerFrequency.swift in Sources */,
+				D4C430482A4BCE5A00B0812E /* JGSTunnerDetector.swift in Sources */,
+				D4C430212A4BC5C000B0812E /* JGSTuner.swift in Sources */,
+				D4C430422A4BCE1100B0812E /* JGSTunerData.swift in Sources */,
+				D4C4303C2A4BC8A100B0812E /* JGSAudioDetector.swift in Sources */,
+				D4C430352A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m in Sources */,
+				D4C4303E2A4BCDDC00B0812E /* JGSAudioNode.swift in Sources */,
+				D4C430392A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m in Sources */,
+				D4C430462A4BCE3900B0812E /* JGSTunerNote.swift in Sources */,
+				D4C430402A4BCDF000B0812E /* JGSNodeMixer.swift in Sources */,
+				D4C4302F2A4BC6FE00B0812E /* JGSPCMBufferUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C42FF02A4BC4CB00B0812E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C4305F2A4BD3B300B0812E /* AppDelegate.swift in Sources */,
+				D4C4305E2A4BD3B300B0812E /* ViewController.swift in Sources */,
+				D4C4305D2A4BD3B300B0812E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4C430082A4BC4EE00B0812E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C430132A4BC4EE00B0812E /* ViewController.swift in Sources */,
+				D4C4300F2A4BC4EE00B0812E /* AppDelegate.swift in Sources */,
+				D4C430112A4BC4EE00B0812E /* SceneDelegate.swift in Sources */,
+				D4C430592A4BD32600B0812E /* OCDemoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4C4304C2A4BD1B500B0812E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4C42FB52A4BC01600B0812E /* JGSTuner */;
+			targetProxy = D4C4304B2A4BD1B500B0812E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D4C42FBB2A4BC01600B0812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D4C42FBC2A4BC01600B0812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D4C42FBE2A4BC01600B0812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18CE3070F79A9D1390B75775 /* Pods-JGSTuner-JGSTuner.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Z28L6TKG58;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTuner;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4C42FBF2A4BC01600B0812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 342C28D1E894579B32025366 /* Pods-JGSTuner-JGSTuner.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Z28L6TKG58;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTuner;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4C430062A4BC4CC00B0812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58D9BEB514D353D05D3BD0B9 /* Pods-JGSTuner-JGSTunerAPP.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z28L6TKG58;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JGSTunerAPP/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "我们将要使用您的麦克风采集音频输入数据";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTunerAPP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4C430072A4BC4CC00B0812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A6D767403DFE19699ADB17D /* Pods-JGSTuner-JGSTunerAPP.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z28L6TKG58;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JGSTunerAPP/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "我们将要使用您的麦克风采集音频输入数据";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTunerAPP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4C4301E2A4BC4EF00B0812E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F0584F7788BE92CBD7FB738 /* Pods-JGSTuner-JGSTunerDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z28L6TKG58;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JGSTunerDemo/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "我们将要使用您的麦克风采集音频输入数据";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTunerAPP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JGSTunerDemo/Classes/JGSTunerDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4C4301F2A4BC4EF00B0812E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6D914768CFB024358D8C9A9 /* Pods-JGSTuner-JGSTunerDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z28L6TKG58;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JGSTunerDemo/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "我们将要使用您的麦克风采集音频输入数据";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTunerAPP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JGSTunerDemo/Classes/JGSTunerDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4C42FB02A4BC01600B0812E /* Build configuration list for PBXProject "JGSTuner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C42FBB2A4BC01600B0812E /* Debug */,
+				D4C42FBC2A4BC01600B0812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4C42FBD2A4BC01600B0812E /* Build configuration list for PBXNativeTarget "JGSTuner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C42FBE2A4BC01600B0812E /* Debug */,
+				D4C42FBF2A4BC01600B0812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4C430052A4BC4CC00B0812E /* Build configuration list for PBXNativeTarget "JGSTunerAPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C430062A4BC4CC00B0812E /* Debug */,
+				D4C430072A4BC4CC00B0812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4C4301D2A4BC4EF00B0812E /* Build configuration list for PBXNativeTarget "JGSTunerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C4301E2A4BC4EF00B0812E /* Debug */,
+				D4C4301F2A4BC4EF00B0812E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4C42FAD2A4BC01600B0812E /* Project object */;
+}

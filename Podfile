@@ -11,8 +11,8 @@ install! 'cocoapods', :deterministic_uuids => false
 
 # use_frameworks! 要求生成的是 .framework 而不是 .a
 # use_frameworks! # 使用默认，动态链接
-use_frameworks! :linkage => :dynamic # 使用动态链接
-# use_frameworks! :linkage => :static # 使用静态链接
+#use_frameworks! :linkage => :dynamic # 使用动态链接
+ use_frameworks! :linkage => :static # 使用静态链接
 
 # 将 pods 转为 Modular，因为 Modular 是可以直接在 Swift中 import ，所以不需要再经过 bridging-header 的桥接。
 # 但是开启 use_modular_headers! 之后，会使用更严格的 header 搜索路径，开启后 pod 会启用更严格的搜索路径和生成模块映射
@@ -29,23 +29,29 @@ platform :ios, 13.0
 abstract_target "JGSTuner" do
 
   # JGSourceBase
-  pod 'JGSourceBase/Base', :git => 'https://gitee.com/dengni8023/JGSourceBase', :commit => '2651b42dd7c4656a7dfbedd0b5df8c7fc8d40a8f' #'~> 1.2.2'
+  pod 'JGSourceBase/Category', :git => 'https://gitee.com/dengni8023/JGSourceBase', :commit => '2651b42dd7c4656a7dfbedd0b5df8c7fc8d40a8f' #'~> 1.2.2'
   
   # JGSTuner
   target "JGSTuner" do
     # project
-    project "JGSTunerDemo.xcodeproj"
+    project "JGSTuner.xcodeproj"
   end
 
   # JGSTunerDemo
-  target "JGSTunerDemo" do
+  target "JGSTunerAPP" do
 
     # JGSTuner
     pod 'JGSTuner', :path => "./"
     # pod 'JGSTuner', :podspec => "./JGSTuner.podspec"
     
     # project
-    project "JGSTunerDemo.xcodeproj"
+    project "JGSTuner.xcodeproj"
+  end
+
+  # JGSTunerDemo
+  target "JGSTunerDemo" do
+    # project
+    project "JGSTuner.xcodeproj"
   end
 end
 
