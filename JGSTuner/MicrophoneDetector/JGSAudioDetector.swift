@@ -12,8 +12,8 @@ import AVFoundation
 internal final class JGSAudioDetector {
     
     /// Internal AVAudioEngine
-    private let audioEngine = AVAudioEngine()
-    private let session = AVAudioSession.sharedInstance()
+    private lazy var audioEngine = AVAudioEngine()
+    private lazy var session = AVAudioSession.sharedInstance()
     
     /// Main mixer at the end of the signal chain
     private var mainMixerNode: JGSNodeMixer?
@@ -43,6 +43,9 @@ internal final class JGSAudioDetector {
     /// Start the engine
     func start() throws {
         
+        try session.setCategory(.playAndRecord, options: [.defaultToSpeaker, .mixWithOthers])
+        try session.setActive(true)
+        
         inputNode.audioNode.removeTap(onBus: 0)
         inputNode.audioNode.installTap(onBus: 0, bufferSize: bufferSize, format: nil) { [weak self] (buffer, time) in
             if let tapBlock = self?.audioNodeTapBlock {
@@ -53,9 +56,6 @@ internal final class JGSAudioDetector {
         }
         
         audioEngine.prepare()
-        
-        try session.setCategory(.playAndRecord, options: [.defaultToSpeaker, .mixWithOthers])
-        try session.setActive(true)
         try audioEngine.start()
     }
     

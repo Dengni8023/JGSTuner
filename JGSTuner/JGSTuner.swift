@@ -37,10 +37,9 @@ public final class JGSTuner: NSObject {
     public var didReceiveAudio = false
     private var showMicrophoneAccessAlert: (() -> Void) = {
         
-        let alert = UIAlertController(title: "提示", message: """
-        请在设置-隐私与安全设置中允许本应用使用麦克风，已采集音频输入信号。
-        """, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "确定", style: .cancel))
+        let microDesc = Bundle.main.object(forInfoDictionaryKey: "NSMicrophoneUsageDescription") as? String
+        let alert = UIAlertController(title: microDesc, message: "请在 设置 -> 隐私与安全 -> 麦克风 设置中允许本应用使用麦克风，以采集音频输入信号。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "知道了", style: .cancel))
         alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         })

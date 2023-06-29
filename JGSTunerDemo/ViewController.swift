@@ -65,10 +65,9 @@ class ViewController: UIViewController {
     // MARK: - Tuner
     private lazy var tuner = JGSTuner { [weak self] in
         
-        let alert = UIAlertController(title: "提示", message: """
-        Please grant microphone access in the Settings app in the "Privacy ⇾ Microphone" section.
-        """, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "确定", style: .cancel))
+        let microDesc = Bundle.main.object(forInfoDictionaryKey: "NSMicrophoneUsageDescription") as? String
+        let alert = UIAlertController(title: microDesc, message: "请在 设置 -> 隐私与安全 -> 麦克风 设置中允许本应用使用麦克风，以采集音频输入信号。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "知道了", style: .cancel))
         alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         })
