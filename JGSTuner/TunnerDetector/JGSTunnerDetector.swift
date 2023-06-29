@@ -6,7 +6,10 @@
 //  Copyright © 2023 MeiJigao. All rights reserved.
 //
 
-import Foundation
+import AVFoundation
+
+// 构建framework需要开始submodule，以引用OC、C、C++
+//import JGSTuner.PitchDetector
 
 internal final class JGSTunnerDetector {
     

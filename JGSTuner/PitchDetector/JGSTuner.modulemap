@@ -1,0 +1,12 @@
+// module.modulemap 文件
+// https://www.jianshu.com/p/b4f88651f069
+// https://www.jianshu.com/p/ce49d8f32f77
+// https://github.com/yansaid/Test/tree/master/Module
+framework module JGSTuner {
+    explicit module PitchDetector {
+        requires objc
+        header "CMicrophonePitchDetector.h"
+        link "PitchDetector"
+        export *
+    }
+}

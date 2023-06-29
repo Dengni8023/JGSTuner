@@ -16,10 +16,10 @@
 		D4C430132A4BC4EE00B0812E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430122A4BC4EE00B0812E /* ViewController.swift */; };
 		D4C430182A4BC4EF00B0812E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C430172A4BC4EF00B0812E /* Assets.xcassets */; };
 		D4C430212A4BC5C000B0812E /* JGSTuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430202A4BC5C000B0812E /* JGSTuner.swift */; };
-		D4C4302E2A4BC6FE00B0812E /* JGSPCMBufferUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C4302C2A4BC6FE00B0812E /* JGSPCMBufferUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4C4302F2A4BC6FE00B0812E /* JGSPCMBufferUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C4302D2A4BC6FE00B0812E /* JGSPCMBufferUtils.m */; };
-		D4C430352A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C430332A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m */; };
-		D4C430392A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C430372A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m */; };
+		D4C4302E2A4BC6FE00B0812E /* CMicrophonePitchDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = D4C4302C2A4BC6FE00B0812E /* CMicrophonePitchDetector.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D4C4302F2A4BC6FE00B0812E /* base.c in Sources */ = {isa = PBXBuildFile; fileRef = D4C4302D2A4BC6FE00B0812E /* base.c */; };
+		D4C430352A4BC74000B0812E /* fft.c in Sources */ = {isa = PBXBuildFile; fileRef = D4C430332A4BC74000B0812E /* fft.c */; };
+		D4C430392A4BC75200B0812E /* pitchtrack.c in Sources */ = {isa = PBXBuildFile; fileRef = D4C430372A4BC75200B0812E /* pitchtrack.c */; };
 		D4C4303C2A4BC8A100B0812E /* JGSAudioDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303B2A4BC8A100B0812E /* JGSAudioDetector.swift */; };
 		D4C4303E2A4BCDDC00B0812E /* JGSAudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303D2A4BCDDC00B0812E /* JGSAudioNode.swift */; };
 		D4C430402A4BCDF000B0812E /* JGSNodeMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303F2A4BCDF000B0812E /* JGSNodeMixer.swift */; };
@@ -71,6 +71,7 @@
 		83743FBB171CCAFD6DC0DB14 /* Pods_JGSTuner_JGSTunerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JGSTuner_JGSTunerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F55612F5BA7B56DF9B9056 /* Pods_JGSTuner_JGSTunerAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JGSTuner_JGSTunerAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F0584F7788BE92CBD7FB738 /* Pods-JGSTuner-JGSTunerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JGSTuner-JGSTunerDemo.debug.xcconfig"; path = "Target Support Files/Pods-JGSTuner-JGSTunerDemo/Pods-JGSTuner-JGSTunerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D44F1C0E2A4C5CB2008B74A9 /* JGSTuner.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = JGSTuner.modulemap; sourceTree = "<group>"; };
 		D4C42FB62A4BC01600B0812E /* JGSTuner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JGSTuner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C42FB92A4BC01600B0812E /* JGSTuner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGSTuner.h; sourceTree = "<group>"; };
 		D4C42FF42A4BC4CB00B0812E /* JGSTunerAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGSTunerAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,10 +84,10 @@
 		D4C430172A4BC4EF00B0812E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4C4301C2A4BC4EF00B0812E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C430202A4BC5C000B0812E /* JGSTuner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTuner.swift; sourceTree = "<group>"; };
-		D4C4302C2A4BC6FE00B0812E /* JGSPCMBufferUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGSPCMBufferUtils.h; sourceTree = "<group>"; };
-		D4C4302D2A4BC6FE00B0812E /* JGSPCMBufferUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGSPCMBufferUtils.m; sourceTree = "<group>"; };
-		D4C430332A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JGSPCMBufferUtils+FFT.m"; sourceTree = "<group>"; };
-		D4C430372A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JGSPCMBufferUtils+Pitch.m"; sourceTree = "<group>"; };
+		D4C4302C2A4BC6FE00B0812E /* CMicrophonePitchDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMicrophonePitchDetector.h; sourceTree = "<group>"; };
+		D4C4302D2A4BC6FE00B0812E /* base.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = base.c; sourceTree = "<group>"; };
+		D4C430332A4BC74000B0812E /* fft.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fft.c; sourceTree = "<group>"; };
+		D4C430372A4BC75200B0812E /* pitchtrack.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pitchtrack.c; sourceTree = "<group>"; };
 		D4C4303B2A4BC8A100B0812E /* JGSAudioDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioDetector.swift; sourceTree = "<group>"; };
 		D4C4303D2A4BCDDC00B0812E /* JGSAudioNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioNode.swift; sourceTree = "<group>"; };
 		D4C4303F2A4BCDF000B0812E /* JGSNodeMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSNodeMixer.swift; sourceTree = "<group>"; };
@@ -185,7 +186,7 @@
 				D4C42FB92A4BC01600B0812E /* JGSTuner.h */,
 				D4C430202A4BC5C000B0812E /* JGSTuner.swift */,
 				D4C430242A4BC62E00B0812E /* MicrophoneDetector */,
-				D4C430252A4BC63F00B0812E /* PCMBufferUtils */,
+				D4C430252A4BC63F00B0812E /* PitchDetector */,
 				D4C430222A4BC60100B0812E /* TunnerDetector */,
 			);
 			path = JGSTuner;
@@ -239,15 +240,16 @@
 			path = MicrophoneDetector;
 			sourceTree = "<group>";
 		};
-		D4C430252A4BC63F00B0812E /* PCMBufferUtils */ = {
+		D4C430252A4BC63F00B0812E /* PitchDetector */ = {
 			isa = PBXGroup;
 			children = (
-				D4C4302C2A4BC6FE00B0812E /* JGSPCMBufferUtils.h */,
-				D4C4302D2A4BC6FE00B0812E /* JGSPCMBufferUtils.m */,
-				D4C430332A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m */,
-				D4C430372A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m */,
+				D44F1C0E2A4C5CB2008B74A9 /* JGSTuner.modulemap */,
+				D4C4302C2A4BC6FE00B0812E /* CMicrophonePitchDetector.h */,
+				D4C4302D2A4BC6FE00B0812E /* base.c */,
+				D4C430332A4BC74000B0812E /* fft.c */,
+				D4C430372A4BC75200B0812E /* pitchtrack.c */,
 			);
-			path = PCMBufferUtils;
+			path = PitchDetector;
 			sourceTree = "<group>";
 		};
 		D4C430552A4BD2D900B0812E /* Classes */ = {
@@ -267,7 +269,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C4302E2A4BC6FE00B0812E /* JGSPCMBufferUtils.h in Headers */,
+				D4C4302E2A4BC6FE00B0812E /* CMicrophonePitchDetector.h in Headers */,
 				D4C42FBA2A4BC01600B0812E /* JGSTuner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,12 +540,12 @@
 				D4C430212A4BC5C000B0812E /* JGSTuner.swift in Sources */,
 				D4C430422A4BCE1100B0812E /* JGSTunerData.swift in Sources */,
 				D4C4303C2A4BC8A100B0812E /* JGSAudioDetector.swift in Sources */,
-				D4C430352A4BC74000B0812E /* JGSPCMBufferUtils+FFT.m in Sources */,
+				D4C430352A4BC74000B0812E /* fft.c in Sources */,
 				D4C4303E2A4BCDDC00B0812E /* JGSAudioNode.swift in Sources */,
-				D4C430392A4BC75200B0812E /* JGSPCMBufferUtils+Pitch.m in Sources */,
+				D4C430392A4BC75200B0812E /* pitchtrack.c in Sources */,
 				D4C430462A4BCE3900B0812E /* JGSTunerNote.swift in Sources */,
 				D4C430402A4BCDF000B0812E /* JGSNodeMixer.swift in Sources */,
-				D4C4302F2A4BC6FE00B0812E /* JGSPCMBufferUtils.m in Sources */,
+				D4C4302F2A4BC6FE00B0812E /* base.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,12 +723,14 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MODULEMAP_FILE = "$(PROJECT_DIR)/JGSTuner/PitchDetector/JGSTuner.modulemap";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTuner;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/JGSTuner/PitchDetector/";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -755,12 +759,14 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MODULEMAP_FILE = "$(PROJECT_DIR)/JGSTuner/PitchDetector/JGSTuner.modulemap";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = com.meijigao.JGSTuner;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/JGSTuner/PitchDetector/";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,17 +1,7 @@
-//
-//  JGSPCMBufferUtils.h
-//  JGSTuner
-//
-//  Created by 梅继高 on 2023/6/28.
-//  Copyright © 2023 MeiJigao. All rights reserved.
-//
+// Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/AudioKit/
 
-#ifndef JGSPCMBufferUtils_h
-#define JGSPCMBufferUtils_h
-
-// ZenTuner源码: https://github.com/jpsim/ZenTuner
-// 本文件复制：CMicrophonePitchDetector/CMicrophonePitchDetector.h
-// 后续修改待定
+#ifndef ZENTUNER_H
+#define ZENTUNER_H
 
 #include <stdint.h>
 #include <stdio.h>
@@ -71,4 +61,4 @@ void zt_ptrack_destroy(zt_ptrack **p);
 void zt_ptrack_init(zt_data *sp, zt_ptrack *p, int ihopsize, int ipeaks);
 void zt_ptrack_compute(zt_data *sp, zt_ptrack *p, ZTFLOAT *in, ZTFLOAT *freq, ZTFLOAT *amp);
 
-#endif /* JGSPCMBufferUtils_h */
+#endif

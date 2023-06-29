@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        JGSEnableLogWithMode(.func)
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = JGSColorHex(0x4B73F1)
         navigationController?.navigationBar.titleTextAttributes = [

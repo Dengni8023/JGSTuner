@@ -1,17 +1,3 @@
-//
-//  JGSPCMBufferUtils+Pitch.m
-//  JGSTuner
-//
-//  Created by 梅继高 on 2023/6/28.
-//  Copyright © 2023 MeiJigao. All rights reserved.
-//
-
-#import "JGSPCMBufferUtils.h"
-
-// ZenTuner源码: https://github.com/jpsim/ZenTuner
-// 本文件复制：CMicrophonePitchDetector/ptrack.c
-// 后续修改待定
-
 /*
  * PTrack
  *
@@ -26,7 +12,7 @@
 
 #include <stdlib.h>
 #include <math.h>
-//#include "CMicrophonePitchDetector.h"
+#include "CMicrophonePitchDetector.h"
 
 #define MINFREQINBINS 5
 #define MAXWINSIZ 8192

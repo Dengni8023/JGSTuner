@@ -1,23 +1,9 @@
-//
-//  JGSPCMBufferUtils.m
-//  JGSTuner
-//
-//  Created by 梅继高 on 2023/6/28.
-//  Copyright © 2023 MeiJigao. All rights reserved.
-//
-
-#import "JGSPCMBufferUtils.h"
-
-// ZenTuner源码: https://github.com/jpsim/ZenTuner
-// 本文件复制：CMicrophonePitchDetector/base.c
-// 后续修改待定
-
 // Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/AudioKit/
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-//#include "CMicrophonePitchDetector.h"
+#include "CMicrophonePitchDetector.h"
 
 void zt_create(zt_data **spp)
 {
