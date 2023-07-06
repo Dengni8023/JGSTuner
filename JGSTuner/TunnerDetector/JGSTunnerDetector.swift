@@ -15,7 +15,6 @@ internal final class JGSTunnerDetector {
     
     private var data: UnsafeMutablePointer<zt_data>?
     private var ptrack: UnsafeMutablePointer<zt_ptrack>?
-    private var ignoreCnt: Int = 0
     
     public init(sampleRate: Double, bufferSize: UInt32, peakCount: UInt32 = 20) {
         withUnsafeMutablePointer(to: &data, zt_create)
@@ -33,9 +32,8 @@ internal final class JGSTunnerDetector {
     /// - Parameters:
     ///   - buffer: 采样数据
     ///   - amThreshold: 振幅阈值
-    ///   - ignore: 满足振幅阈值后，忽略几个点
     /// - Returns: JGSTunerData?
-    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.025, ignore: Int = 3) -> JGSTunerData? {
+    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.016) -> JGSTunerData? {
 
         // 数据异常
         guard let floatData = buffer.floatChannelData else { return nil }
@@ -50,13 +48,6 @@ internal final class JGSTunnerDetector {
         
         // 振幅不满足
         guard amplitude > amThreshold else {
-            ignoreCnt = 0
-            return nil
-        }
-        
-        // 忽略点
-        ignoreCnt += 1
-        guard ignoreCnt > ignore else {
             return nil
         }
         
