@@ -33,7 +33,7 @@ internal final class JGSTunnerDetector {
     ///   - buffer: 采样数据
     ///   - amThreshold: 振幅阈值
     /// - Returns: JGSTunerData?
-    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.016) -> JGSTunerData? {
+    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.05) -> JGSTunerData? {
 
         // 数据异常
         guard let floatData = buffer.floatChannelData else { return nil }
@@ -47,12 +47,7 @@ internal final class JGSTunnerDetector {
         }
         
         // 振幅不满足
-        guard amplitude > amThreshold else {
-            return nil
-        }
-        
-        // 频率不满足
-        guard frequency >= 70 else {
+        guard amplitude > amThreshold, frequency > 0 else {
             return nil
         }
         
