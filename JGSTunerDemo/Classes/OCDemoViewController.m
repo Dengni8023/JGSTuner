@@ -25,7 +25,9 @@
     self.title = @"Demo-OC";
     self.view.backgroundColor = [UIColor colorWithWhite:0.99 alpha:1.0];
     
-    _tuner = [[JGSTuner alloc] initWithMicrophoneAccessAlert:nil analyzeCallback:^(float frequency, float amplitude) {
+    _tuner = [[JGSTuner alloc] initWithAmplitudeThreshold:0.025 standardA4Frequency:440 microphoneAccessAlert:^{
+        
+    } analyzeCallback:^(float frequency, float amplitude, NSArray<NSString *> * _Nonnull names, NSInteger octave, float distance, float standardFrequency) {
         JGSLog(@"%f, %f", frequency, amplitude);
     }];
 }
