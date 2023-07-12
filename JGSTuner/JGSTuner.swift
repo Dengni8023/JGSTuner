@@ -30,6 +30,9 @@ public final class JGSTuner: NSObject {
             if let callback = self.frequencyAmplitudeAnalyze {
                 callback(tunerData)
             }
+            if let callback = self.frequencyAmplitudeAnalyzeOC {
+                callback(tunerData.frequency, tunerData.amplitude, tunerData.names, tunerData.octave, tunerData.distance, tunerData.standardFrequency)
+            }
         }
     }
     
@@ -66,6 +69,14 @@ public final class JGSTuner: NSObject {
         amplitudeThreshold = amThreshold
         standardA4Frequency = standardA4
         frequencyAmplitudeAnalyze = callback
+    }
+    
+    private var frequencyAmplitudeAnalyzeOC: ((_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void)?
+    public required init(amplitudeThreshold amThreshold: Float, standardA4Frequency standardA4: Float = 440, microphoneAccessAlert: (() -> Void)?, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void) {
+        showMicrophoneAccessAlert = microphoneAccessAlert ?? showMicrophoneAccessAlert
+        amplitudeThreshold = amThreshold
+        standardA4Frequency = standardA4
+        frequencyAmplitudeAnalyzeOC = callback
     }
     
     @MainActor
