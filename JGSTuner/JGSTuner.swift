@@ -14,6 +14,8 @@ public final class JGSTuner: NSObject {
     
     private var hasMicrophoneAccess = false
     private var pitchDetector: JGSTunnerDetector?
+    private var amplitudeThreshold: Float = 0.025
+    private var standardA4Frequency: Float = 440
     private lazy var engine = JGSAudioDetector(bufferSize: bufferSize) { [weak self] buffer, time in
         self?.didReceiveAudio = true
         
@@ -24,11 +26,9 @@ public final class JGSTuner: NSObject {
                 pitchDetector = JGSTunnerDetector(sampleRate: buffer.format.sampleRate, bufferSize: bufferSize)
             }
             
-            guard let tunnerData = pitchDetector?.analyzePitch(from: buffer) else { return }
-            JGSLog("amplitude:", tunnerData.amplitude, "frequency:", tunnerData.frequency.rawValue.value, "->", tunnerData.closestNote.note.frequency.rawValue.value, "note:", "\(tunnerData.closestNote.note.names.joined(separator: "/"))\(tunnerData.closestNote.octave)")
-            
+            guard let tunerData = pitchDetector?.analyzePitch(from: buffer, amplitudeThreshold: amplitudeThreshold, standardA4Frequency: standardA4Frequency) else { return }
             if let callback = self.frequencyAmplitudeAnalyze {
-                callback(Float(tunnerData.frequency.rawValue.value), tunnerData.amplitude)
+                callback(tunerData)
             }
         }
     }
@@ -59,10 +59,12 @@ public final class JGSTuner: NSObject {
             UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true)
         }
     }
-    private var frequencyAmplitudeAnalyze: ((_ frequency: Float, _ amplitude: Float) -> Void)?
     
-    public required init(microphoneAccessAlert: (() -> Void)?, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float) -> Void) {
+    private var frequencyAmplitudeAnalyze: ((_ analyzeNote: JGSTunnerAnalyzeNote) -> Void)?
+    public required init(amplitudeThreshold amThreshold: Float, standardA4Frequency standardA4: Float = 440, microphoneAccessAlert: (() -> Void)?, analyzeCallback callback: @escaping (_ analyzeNote: JGSTunnerAnalyzeNote) -> Void) {
         showMicrophoneAccessAlert = microphoneAccessAlert ?? showMicrophoneAccessAlert
+        amplitudeThreshold = amThreshold
+        standardA4Frequency = standardA4
         frequencyAmplitudeAnalyze = callback
     }
     

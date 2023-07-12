@@ -23,8 +23,6 @@
 		D4C4303C2A4BC8A100B0812E /* JGSAudioDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303B2A4BC8A100B0812E /* JGSAudioDetector.swift */; };
 		D4C4303E2A4BCDDC00B0812E /* JGSAudioNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303D2A4BCDDC00B0812E /* JGSAudioNode.swift */; };
 		D4C430402A4BCDF000B0812E /* JGSNodeMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C4303F2A4BCDF000B0812E /* JGSNodeMixer.swift */; };
-		D4C430422A4BCE1100B0812E /* JGSTunerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430412A4BCE1100B0812E /* JGSTunerData.swift */; };
-		D4C430442A4BCE2400B0812E /* JGSTunerFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430432A4BCE2400B0812E /* JGSTunerFrequency.swift */; };
 		D4C430462A4BCE3900B0812E /* JGSTunerNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430452A4BCE3900B0812E /* JGSTunerNote.swift */; };
 		D4C430482A4BCE5A00B0812E /* JGSTunnerDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C430472A4BCE5A00B0812E /* JGSTunnerDetector.swift */; };
 		D4C430492A4BD1B500B0812E /* JGSTuner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C42FB62A4BC01600B0812E /* JGSTuner.framework */; };
@@ -91,8 +89,6 @@
 		D4C4303B2A4BC8A100B0812E /* JGSAudioDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioDetector.swift; sourceTree = "<group>"; };
 		D4C4303D2A4BCDDC00B0812E /* JGSAudioNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSAudioNode.swift; sourceTree = "<group>"; };
 		D4C4303F2A4BCDF000B0812E /* JGSNodeMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSNodeMixer.swift; sourceTree = "<group>"; };
-		D4C430412A4BCE1100B0812E /* JGSTunerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunerData.swift; sourceTree = "<group>"; };
-		D4C430432A4BCE2400B0812E /* JGSTunerFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunerFrequency.swift; sourceTree = "<group>"; };
 		D4C430452A4BCE3900B0812E /* JGSTunerNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunerNote.swift; sourceTree = "<group>"; };
 		D4C430472A4BCE5A00B0812E /* JGSTunnerDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JGSTunnerDetector.swift; sourceTree = "<group>"; };
 		D4C430512A4BD2B700B0812E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -222,8 +218,6 @@
 		D4C430222A4BC60100B0812E /* TunnerDetector */ = {
 			isa = PBXGroup;
 			children = (
-				D4C430412A4BCE1100B0812E /* JGSTunerData.swift */,
-				D4C430432A4BCE2400B0812E /* JGSTunerFrequency.swift */,
 				D4C430452A4BCE3900B0812E /* JGSTunerNote.swift */,
 				D4C430472A4BCE5A00B0812E /* JGSTunnerDetector.swift */,
 			);
@@ -535,10 +529,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C430442A4BCE2400B0812E /* JGSTunerFrequency.swift in Sources */,
 				D4C430482A4BCE5A00B0812E /* JGSTunnerDetector.swift in Sources */,
 				D4C430212A4BC5C000B0812E /* JGSTuner.swift in Sources */,
-				D4C430422A4BCE1100B0812E /* JGSTunerData.swift in Sources */,
 				D4C4303C2A4BC8A100B0812E /* JGSAudioDetector.swift in Sources */,
 				D4C430352A4BC74000B0812E /* fft.c in Sources */,
 				D4C4303E2A4BCDDC00B0812E /* JGSAudioNode.swift in Sources */,

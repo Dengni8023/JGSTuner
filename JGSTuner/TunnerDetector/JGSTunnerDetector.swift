@@ -11,6 +11,7 @@ import AVFoundation
 // 构建framework需要开始submodule，以引用OC、C、C++
 //import JGSTuner.PitchDetector
 
+public typealias JGSTunnerAnalyzeNote = (frequency: Float, amplitude: Float, names: [String], octave: Int, distance: Float, standardFrequency: Float)
 internal final class JGSTunnerDetector {
     
     private var data: UnsafeMutablePointer<zt_data>?
@@ -33,7 +34,7 @@ internal final class JGSTunnerDetector {
     ///   - buffer: 采样数据
     ///   - amThreshold: 振幅阈值
     /// - Returns: JGSTunerData?
-    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.05) -> JGSTunerData? {
+    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.025, standardA4Frequency standardA4: Float = 440) -> JGSTunnerAnalyzeNote? {
 
         // 数据异常
         guard let floatData = buffer.floatChannelData else { return nil }
@@ -51,6 +52,7 @@ internal final class JGSTunnerDetector {
             return nil
         }
         
-        return  JGSTunerData(frequency: frequency, amplitude: amplitude)
+        let match = JGSTunerNote.closestNote(to: Double(frequency), standardA4Frequency: Double(standardA4))
+        return (frequency, amplitude, match.note.names, match.octave, Float(match.distance.cents), Float(match.frequency))
     }
 }

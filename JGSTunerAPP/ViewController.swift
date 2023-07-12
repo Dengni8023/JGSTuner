@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Tuner
-    private lazy var tuner = JGSTuner { [weak self] in
+    private lazy var tuner = JGSTuner(amplitudeThreshold: 0.025, standardA4Frequency: 440.0) { [weak self] in
         
         let microDesc = Bundle.main.object(forInfoDictionaryKey: "NSMicrophoneUsageDescription") as? String
         let alert = UIAlertController(title: microDesc, message: "请在 设置 -> 隐私与安全 -> 麦克风 设置中允许本应用使用麦克风，以采集音频输入信号。", preferredStyle: .alert)
@@ -63,8 +63,8 @@ class ViewController: UIViewController {
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         })
         self?.present(alert, animated: true)
-    } analyzeCallback: { [weak self] (frequency, amplitude) in
-        JGSLog(frequency, amplitude)
+    } analyzeCallback: { [weak self] (analyzeData) in
+        JGSLog(analyzeData.frequency, analyzeData.amplitude, analyzeData.names.joined(separator: "/"), analyzeData.octave, analyzeData.standardFrequency, analyzeData.distance)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
