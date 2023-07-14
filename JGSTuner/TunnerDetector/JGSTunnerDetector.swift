@@ -34,7 +34,7 @@ internal final class JGSTunnerDetector {
     ///   - buffer: 采样数据
     ///   - amThreshold: 振幅阈值
     /// - Returns: JGSTunerData?
-    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.025, standardA4Frequency standardA4: Float = 440) -> JGSTunnerAnalyzeNote? {
+    public func analyzePitch(from buffer: AVAudioPCMBuffer, amplitudeThreshold amThreshold: Float = 0.025, a4Frequency: Float = 440) -> JGSTunnerAnalyzeNote? {
 
         // 数据异常
         guard let floatData = buffer.floatChannelData else { return nil }
@@ -52,7 +52,7 @@ internal final class JGSTunnerDetector {
             return nil
         }
         
-        let match = JGSTunerNote.closestNote(to: Double(frequency), standardA4Frequency: Double(standardA4))
+        let match = JGSTunerNote.closestNote(to: Double(frequency), a4Frequency: Double(a4Frequency))
         return (frequency, amplitude, match.note.names, match.octave, Float(match.distance.cents), Float(match.frequency))
     }
 }

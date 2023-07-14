@@ -41,7 +41,7 @@
     if (_tuner.didReceiveAudio) {
         [_tuner stop];
     } else {
-        [_tuner startWithAmplitudeThreshold:0.025 standardA4Frequency:440 analyzeCallback:^(float frequency, float amplitude, NSArray<NSString *> *_Nonnull names, NSInteger octave, float distance, float standardFrequency) {
+        [_tuner startWithAmplitudeThreshold:0.025 a4Frequency:440 analyzeCallback:^(float frequency, float amplitude, NSArray<NSString *> *_Nonnull names, NSInteger octave, float distance, float standardFrequency) {
             JGSLog(@"%f, %f", frequency, amplitude);
         } completionHandler:^(BOOL success) {
             JGSLog(@"Start %@", success ? @"success" : @"fail");

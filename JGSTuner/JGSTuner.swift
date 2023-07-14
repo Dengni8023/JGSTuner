@@ -15,7 +15,7 @@ public final class JGSTuner: NSObject {
     private var hasMicrophoneAccess = false
     private var pitchDetector: JGSTunnerDetector?
     private var amplitudeThreshold: Float = 0.025
-    private var standardA4Frequency: Float = 440
+    private var a4Frequency: Float = 440
     private lazy var engine = JGSAudioDetector(bufferSize: bufferSize) { [weak self] buffer, time in
         self?.didReceiveAudio = true
         
@@ -26,7 +26,7 @@ public final class JGSTuner: NSObject {
                 pitchDetector = JGSTunnerDetector(sampleRate: buffer.format.sampleRate, bufferSize: bufferSize)
             }
             
-            guard let tunerData = pitchDetector?.analyzePitch(from: buffer, amplitudeThreshold: amplitudeThreshold, standardA4Frequency: standardA4Frequency) else { return }
+            guard let tunerData = pitchDetector?.analyzePitch(from: buffer, amplitudeThreshold: amplitudeThreshold, a4Frequency: a4Frequency) else { return }
             if let callback = self.frequencyAmplitudeAnalyze {
                 callback(tunerData.frequency, tunerData.amplitude, tunerData.names, tunerData.octave, tunerData.distance, tunerData.standardFrequency)
             }
@@ -66,7 +66,7 @@ public final class JGSTuner: NSObject {
     }
     
     @MainActor
-    public func start(amplitudeThreshold amThreshold: Float, standardA4Frequency standardA4: Float = 440, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void) async -> Bool {
+    public func start(amplitudeThreshold amThreshold: Float, a4Frequency a4Freq: Float = 440, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void) async -> Bool {
         
         if didReceiveAudio {
             return false
@@ -96,7 +96,7 @@ public final class JGSTuner: NSObject {
         }
         
         amplitudeThreshold = amThreshold
-        standardA4Frequency = standardA4
+        a4Frequency = a4Freq
         frequencyAmplitudeAnalyze = callback
         JGSLog("Took \(String(format: "%.2fs", -startDate.timeIntervalSinceNow)) to start")
         return true

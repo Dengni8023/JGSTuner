@@ -81,10 +81,10 @@ internal enum JGSTunerNote: Int, CaseIterable, Identifiable {
     ///   - inFreq: The frequency to match against.
     ///   - a4Freq: The standard A4 frequency
     /// - Returns: The closest note match.
-    static func closestNote(to inFreq: Double, standardA4Frequency a4Freq: Double = JGSTunerStandardA4Frequency) -> JGSTunerNoteMatch {
+    static func closestNote(to inFreq: Double, a4Frequency: Double = JGSTunerStandardA4Frequency) -> JGSTunerNoteMatch {
         
         //
-        let frequency = inFreq * JGSTunerStandardA4Frequency / a4Freq
+        let frequency = inFreq * JGSTunerStandardA4Frequency / a4Frequency
         
         // Shift frequency octave to be within range of scale note frequencies.
         var octaveShiftedFrequency = frequency

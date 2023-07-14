@@ -73,7 +73,7 @@ class ViewController: UIViewController {
             Task { [weak self] in
                 guard let `self` = self else { return }
                 
-                let success = await self.tuner.start(amplitudeThreshold: 0.025, standardA4Frequency: 440.0, analyzeCallback: { frequency, amplitude, names, octave, distance, standardFrequency in
+                let success = await self.tuner.start(amplitudeThreshold: 0.025, a4Frequency: 440.0, analyzeCallback: { frequency, amplitude, names, octave, distance, standardFrequency in
                     JGSLog(frequency, amplitude, names.joined(separator: "/"), octave, distance, standardFrequency)
                 })
                 JGSLog("Start", success ? "success" : "fail")
