@@ -28,9 +28,6 @@ public final class JGSTuner: NSObject {
             
             guard let tunerData = pitchDetector?.analyzePitch(from: buffer, amplitudeThreshold: amplitudeThreshold, standardA4Frequency: standardA4Frequency) else { return }
             if let callback = self.frequencyAmplitudeAnalyze {
-                callback(tunerData)
-            }
-            if let callback = self.frequencyAmplitudeAnalyzeOC {
                 callback(tunerData.frequency, tunerData.amplitude, tunerData.names, tunerData.octave, tunerData.distance, tunerData.standardFrequency)
             }
         }
@@ -63,24 +60,13 @@ public final class JGSTuner: NSObject {
         }
     }
     
-    private var frequencyAmplitudeAnalyze: ((_ analyzeNote: JGSTunnerAnalyzeNote) -> Void)?
-    public required init(amplitudeThreshold amThreshold: Float, standardA4Frequency standardA4: Float = 440, microphoneAccessAlert: (() -> Void)?, analyzeCallback callback: @escaping (_ analyzeNote: JGSTunnerAnalyzeNote) -> Void) {
+    private var frequencyAmplitudeAnalyze: ((_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void)?
+    public required init(microphoneAccessAlert: (() -> Void)?) {
         showMicrophoneAccessAlert = microphoneAccessAlert ?? showMicrophoneAccessAlert
-        amplitudeThreshold = amThreshold
-        standardA4Frequency = standardA4
-        frequencyAmplitudeAnalyze = callback
-    }
-    
-    private var frequencyAmplitudeAnalyzeOC: ((_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void)?
-    public required init(amplitudeThreshold amThreshold: Float, standardA4Frequency standardA4: Float = 440, microphoneAccessAlert: (() -> Void)?, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void) {
-        showMicrophoneAccessAlert = microphoneAccessAlert ?? showMicrophoneAccessAlert
-        amplitudeThreshold = amThreshold
-        standardA4Frequency = standardA4
-        frequencyAmplitudeAnalyzeOC = callback
     }
     
     @MainActor
-    public func start() async -> Bool {
+    public func start(amplitudeThreshold amThreshold: Float, standardA4Frequency standardA4: Float = 440, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void) async -> Bool {
         
         if didReceiveAudio {
             return false
@@ -108,6 +94,10 @@ public final class JGSTuner: NSObject {
                 return false
             }
         }
+        
+        amplitudeThreshold = amThreshold
+        standardA4Frequency = standardA4
+        frequencyAmplitudeAnalyze = callback
         JGSLog("Took \(String(format: "%.2fs", -startDate.timeIntervalSinceNow)) to start")
         return true
     }

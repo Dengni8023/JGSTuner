@@ -25,11 +25,7 @@
     self.title = @"Demo-OC";
     self.view.backgroundColor = [UIColor colorWithWhite:0.99 alpha:1.0];
     
-    _tuner = [[JGSTuner alloc] initWithAmplitudeThreshold:0.025 standardA4Frequency:440 microphoneAccessAlert:^{
-        
-    } analyzeCallback:^(float frequency, float amplitude, NSArray<NSString *> * _Nonnull names, NSInteger octave, float distance, float standardFrequency) {
-        JGSLog(@"%f, %f", frequency, amplitude);
-    }];
+    _tuner = [[JGSTuner alloc] initWithMicrophoneAccessAlert:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -45,7 +41,9 @@
     if (_tuner.didReceiveAudio) {
         [_tuner stop];
     } else {
-        [_tuner startWithCompletionHandler:^(BOOL success) {
+        [_tuner startWithAmplitudeThreshold:0.025 standardA4Frequency:440 analyzeCallback:^(float frequency, float amplitude, NSArray<NSString *> *_Nonnull names, NSInteger octave, float distance, float standardFrequency) {
+            JGSLog(@"%f, %f", frequency, amplitude);
+        } completionHandler:^(BOOL success) {
             JGSLog(@"Start %@", success ? @"success" : @"fail");
         }];
     }
