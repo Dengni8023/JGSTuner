@@ -52,7 +52,7 @@ internal final class JGSTunnerDetector {
             return nil
         }
         
-        let match = JGSTunerNote.closestNote(to: Double(frequency), a4Frequency: Double(a4Frequency))
-        return (frequency, amplitude, match.note.names, match.octave, Float(match.distance.cents), Float(match.frequency))
+        let match = JGSTunerNote.closestNote(to: frequency, a4Frequency: a4Frequency)
+        return (frequency, amplitude, match.note.names, match.octave, match.distance, match.frequency)
     }
 }
