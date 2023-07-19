@@ -72,8 +72,6 @@ class ViewController: UIViewController {
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         })
         self?.present(alert, animated: true)
-    } analyzeCallback: { [weak self] (frequency, amplitude) in
-        JGSLog(frequency, amplitude)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -84,7 +82,9 @@ class ViewController: UIViewController {
             Task { [weak self] in
                 guard let `self` = self else { return }
                 
-                let success = await self.tuner.start()
+                let success = await self.tuner.start(amplitudeThreshold: 0.025, a4Frequency: JGSTunerStandardA4Frequency) { frequency, amplitude, names, octave, distance, standardFrequency in
+                    JGSLog(frequency, amplitude, names.joined(separator: "/"), octave, distance, standardFrequency)
+                }
                 JGSLog("Start", success ? "success" : "fail")
             }
         }

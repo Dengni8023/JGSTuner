@@ -9,17 +9,17 @@
 import Foundation
 import JGSourceBase
 
-private let JGSTunerStandardA4Frequency: Float = 440.0
+public let JGSTunerStandardA4Frequency: Float = 440.0
 private let JGSTunerStandardA0Frequency: Float = JGSTunerStandardA4Frequency / powf(2.0, 4 - 0)
 private let JGSTunerFrequencyDelta: Float = powf(2.0, 1.0 / 12.0)
 
 // C0: 16.35159783128741
-public func JGSTunerMinFrequency(_ a4Frequency: Float = 440) -> Float {
+public func JGSTunerMinFrequency(_ a4Frequency: Float = JGSTunerStandardA4Frequency) -> Float {
     return JGSTunerNoteMatch(note: .C, octave: 0, distance: 0).frequency * JGSTunerStandardA4Frequency / a4Frequency
 }
 
 // B8: 7902.132820097986
-public func JGSTunerMaxFrequency(_ a4Frequency: Float = 440) -> Float {
+public func JGSTunerMaxFrequency(_ a4Frequency: Float = JGSTunerStandardA4Frequency) -> Float {
     return JGSTunerNoteMatch(note: .B, octave: 8, distance: 0).frequency * JGSTunerStandardA4Frequency / a4Frequency
 }
 
@@ -91,9 +91,9 @@ public enum JGSTunerNote: Int, CaseIterable, Identifiable {
     /// Find the closest note to the specified frequency.
     /// - Parameters:
     ///   - inFreq: The frequency to match against.
-    ///   - a4Freq: The standard A4 frequency
+    ///   - a4Frequency: The standard A4 frequency
     /// - Returns: The closest note match.
-    public static func closestNote(to inFreq: Float, a4Frequency: Float = 440) -> JGSTunerNoteMatch {
+    public static func closestNote(to inFreq: Float, a4Frequency: Float = JGSTunerStandardA4Frequency) -> JGSTunerNoteMatch {
         
         // translate frequency to A4=440
         let frequency = inFreq * JGSTunerStandardA4Frequency / a4Frequency
@@ -146,12 +146,17 @@ public enum JGSTunerNote: Int, CaseIterable, Identifiable {
         return fastResult
     }
     
-    /// Find the closest note to the specified frequency.
-    /// - Parameters:
-    ///   - inFreq: The frequency to match against.
-    ///   - a4Freq: The standard A4 frequency
-    /// - Returns: The closest note match.
-    
+    /// Find the note to the specified toneName.
+    /// - Parameter toneName: toneName eg. F♯2 /  E♭3
+    /// - Returns: The note match.
+    public static func note(with toneNames: [String]) -> [JGSTunerNoteMatch?]? {
+        
+        var matches: [JGSTunerNoteMatch?] = []
+        toneNames.forEach { toneName in
+            matches.append(note(with: toneName))
+        }
+        return matches
+    }
     
     /// Find the note to the specified toneName.
     /// - Parameter toneName: toneName eg. F♯2 /  E♭3
@@ -172,7 +177,7 @@ public enum JGSTunerNote: Int, CaseIterable, Identifiable {
     ///   - note: noteName eg. F♯ /  E♭
     ///   - octave: octave eg. 2
     /// - Returns: The note match.
-    public static func note(with note: String, octave: Int) -> JGSTunerNoteMatch? {
+    private static func note(with note: String, octave: Int) -> JGSTunerNoteMatch? {
         for caseNote in allCases {
             if caseNote.names.contains(note) {
                 return JGSTunerNoteMatch(
@@ -240,5 +245,45 @@ internal extension Float {
         } else {
             self *= powf(2.0, Float(octaves))
         }
+    }
+}
+
+public extension JGSTuner {
+    
+    /// Find the note to the specified toneName.
+    /// - Parameter toneName: toneName eg. F♯2 /  E♭3
+    /// - Returns: The note match.
+    static func notes(with toneNames: [String]) -> [[String: Any]]? {
+        
+        var matches: [[String: Any]] = []
+        toneNames.forEach { toneName in
+            if let match = JGSTunerNote.note(with: toneName) {
+                matches.append([
+                    "note": match.note.names,
+                    "octave": match.octave,
+                    "distance": match.distance,
+                    "frequency": match.frequency,
+                ])
+            } else {
+                matches.append([:])
+            }
+        }
+        return matches
+    }
+    
+    /// Find the note to the specified toneName.
+    /// - Parameter toneName: toneName eg. F♯2 /  E♭3
+    /// - Returns: The note match.
+    static func note(with toneName: String) -> [String: Any]? {
+
+        if let match = JGSTunerNote.note(with: toneName) {
+            return [
+                "note": match.note.names,
+                "octave": match.octave,
+                "distance": match.distance,
+                "frequency": match.frequency,
+            ]
+        }
+        return [:]
     }
 }

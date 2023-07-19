@@ -73,10 +73,10 @@ class ViewController: UIViewController {
             Task { [weak self] in
                 guard let `self` = self else { return }
                 
-                let success = await self.tuner.start(amplitudeThreshold: 0.025, a4Frequency: 440.0, analyzeCallback: { frequency, amplitude, names, octave, distance, standardFrequency in
+                let success = await self.tuner.start(amplitudeThreshold: 0.025, a4Frequency: JGSTunerStandardA4Frequency, analyzeCallback: { frequency, amplitude, names, octave, distance, standardFrequency in
                     JGSLog(frequency, amplitude, names.joined(separator: "/"), octave, distance, standardFrequency)
                     
-                    //let a4Frequency: Float = 440
+                    //let a4Frequency: Float = JGSTunerStandardA4Frequency
                     //let maxFreq = JGSTunerMaxFrequency(a4Frequency)
                     //let minFreq = JGSTunerMinFrequency(a4Frequency)
                     //let freq: Float = min(maxFreq, max(minFreq, Float(arc4random() % UInt32(ceil(maxFreq)))))
@@ -93,9 +93,6 @@ class ViewController: UIViewController {
                         JGSLog("\(matchToneName): \(match2.note.names.joined(separator: "/"))\(match2.octave)", match2.distance, match2.frequency)
                     }
                     
-                    if let match2 = JGSTunerNote.note(with: "\(matchToneName)", octave: matchOctave) {
-                        JGSLog("\(matchToneName)\(matchOctave): \(match2.note.names.joined(separator: "/"))\(match2.octave)", match2.distance, match2.frequency)
-                    }
                     print()
                 })
                 JGSLog("Start", success ? "success" : "fail")
