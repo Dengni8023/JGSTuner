@@ -14,8 +14,8 @@ public final class JGSTuner: NSObject {
     
     private var hasMicrophoneAccess = false
     private var pitchDetector: JGSTunnerDetector?
-    private var amplitudeThreshold: Float = 0.025
-    private var a4Frequency: Float = 440
+    public var amplitudeThreshold: Float = 0.025
+    public var a4Frequency: Float = JGSTunerStandardA4Frequency
     private lazy var engine = JGSAudioDetector(bufferSize: bufferSize) { [weak self] buffer, time in
         self?.didReceiveAudio = true
         
@@ -65,13 +65,15 @@ public final class JGSTuner: NSObject {
         showMicrophoneAccessAlert = microphoneAccessAlert ?? showMicrophoneAccessAlert
     }
     
+    private lazy var isStarting = false
     @MainActor
-    public func start(amplitudeThreshold amThreshold: Float, a4Frequency a4Freq: Float = 440, analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void) async -> Bool {
+    public func start(analyzeCallback callback: @escaping (_ frequency: Float, _ amplitude: Float, _ names: [String], _ octave: Int, _ distance: Float, _ standardFrequency: Float) -> Void) async -> Bool {
         
-        if didReceiveAudio {
+        if didReceiveAudio || isStarting {
             return false
         }
         
+        isStarting = true
         let startDate = Date()
         var intervalMS: UInt64 = 30
         while !didReceiveAudio {
@@ -84,19 +86,20 @@ public final class JGSTuner: NSObject {
                 startEngine()
             } else {
                 showMicrophoneAccessAlert()
+                isStarting = false
                 return false
             }
             intervalMS = min(intervalMS * 2, 180)
             
             let seconds = -startDate.timeIntervalSinceNow
             if seconds > 10 {
+                isStarting = false
                 JGSLog("Start faild after \(String(format: "%.2fs", seconds))")
                 return false
             }
         }
         
-        amplitudeThreshold = amThreshold
-        a4Frequency = a4Freq
+        isStarting = false
         frequencyAmplitudeAnalyze = callback
         JGSLog("Took \(String(format: "%.2fs", -startDate.timeIntervalSinceNow)) to start")
         return true
